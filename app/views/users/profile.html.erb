@@ -1,0 +1,25 @@
+<h1>User Profile</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Joined:</strong>
+  <%= @user.created_at.strftime("%B %d, %Y") %>
+</p>
+<p>
+  <strong>Posts:</strong>
+  <%= @user.posts.count %>
+</p>
+<hr>
+<% @user.posts.each do |post| %>
+  <%= render post %>
+  <p>
+    <%= link_to "Show this post", post %>
+  </p>
+  <hr>
+<% end %>
