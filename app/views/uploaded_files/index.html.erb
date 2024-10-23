@@ -1,0 +1,9 @@
+<h1>Uploaded Files</h1>
+
+<ul>
+  <% @uploaded_files.each do |uploaded_file| %>
+    <li>
+      <%= link_to uploaded_file.name, uploaded_file %>
+    </li>
+  <% end %>
+</ul>

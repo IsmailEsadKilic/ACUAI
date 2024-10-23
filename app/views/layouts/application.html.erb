@@ -33,7 +33,7 @@
       </a>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">
+          <a class="nav-link" href="<%= uploaded_files_path %>">
             Files
           </a>
         </li>
@@ -45,10 +45,14 @@
       </ul>
 
       <% if user_signed_in? %>
-      <a class="btn" style="background: #003D7E" href="<%= new_post_path %>">
-        <i class="bi bi-plus-circle-fill"></i>
-        New Post
-      </a>
+        <a class="btn" style="background: #003D7E" href="<%= new_post_path %>">
+          <i class="bi bi-plus-circle-fill"></i>
+          New Post
+        </a>
+        <a class="btn ms-2" style="background: #003D7E" href="<%= new_uploaded_file_path %>">
+          <i class="bi bi-file-arrow-up-fill"></i>
+          Upload File
+        </a>
         <div class="dropdown ms-2">
           <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-circle"></i>

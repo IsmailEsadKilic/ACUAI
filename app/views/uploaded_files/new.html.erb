@@ -1,0 +1,9 @@
+<%= form_with(model: @uploaded_file, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :upload %>
+  <%= form.file_field :upload %>
+
+  <%= form.submit "Upload" %>
+<% end %>

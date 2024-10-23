@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ new create edit update destroy ]
 
   #if you want only logged in users to be able to create a new post
   # before_action :authenticate_user!, only: %i[ new create edit update destroy ]

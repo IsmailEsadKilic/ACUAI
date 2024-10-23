@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @uploaded_file.name %>
+</p>
+
+<% if @uploaded_file.upload.attached? %>
+  <p>
+    <strong>File:</strong>
+    <%= link_to @uploaded_file.upload.filename, rails_blob_path(@uploaded_file.upload, disposition: "attachment") %>
+  </p>
+<% end %>
