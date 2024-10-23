@@ -27,8 +27,10 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     if user_signed_in?
+      "User signed in"
       @post = current_user.posts.build(post_params)
     else
+      "User not signed in"
       @post = Post.new(post_params)
     end
 
