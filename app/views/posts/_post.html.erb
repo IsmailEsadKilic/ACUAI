@@ -18,4 +18,17 @@
     <%= post.body %>
   </p>
 
+  <% if post.uploads.attached? %>
+    <h3>Attachments:</h3>
+    <ul>
+      <% post.uploads.each do |upload| %>
+        <li>
+          <%= link_to upload.filename, rails_blob_path(upload, disposition: "attachment") %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No attachments</p>
+  <% end %>
+
 </div>

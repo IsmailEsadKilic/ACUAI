@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
   end
@@ -77,6 +78,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, uploads: [])
   end
 end

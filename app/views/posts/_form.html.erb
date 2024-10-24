@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :uploads, style: "display: block" %>
+    <%= form.file_field :uploads, multiple: true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
