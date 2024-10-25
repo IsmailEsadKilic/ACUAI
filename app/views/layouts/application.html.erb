@@ -44,8 +44,18 @@
         </li>
       </ul>
 
+      <a class="btn" style="background: #003D7E" href="<%= pinned_posts_path %>">
+        <i class="bi bi-pin-fill"></i>
+        Pinned Posts
+      </a>
+
+      <%= form_with url: posts_path, method: :get, local: true, html: { class: "d-flex ms-2" } do %>
+        <%= text_field_tag :search, params[:search], class: "form-control me-sm-2", placeholder: "Search Posts" %>
+        <%= submit_tag "Search", class: "btn btn-secondary my-2 my-sm-0" %>
+      <% end %>
+
       <% if user_signed_in? %>
-        <a class="btn" style="background: #003D7E" href="<%= new_post_path %>">
+        <a class="btn ms-2" style="background: #003D7E" href="<%= new_post_path %>">
           <i class="bi bi-plus-circle-fill"></i>
           New Post
         </a>

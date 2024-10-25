@@ -6,6 +6,15 @@ Rails.application.routes.draw do
   get "u/:id" => "users#profile", as: :user_profile
 
   resources :posts do
+    member do
+      patch :pin
+      patch :unpin
+    end
+
+    collection do
+      get :pinned
+    end
+
     resources :comments
   end
 
