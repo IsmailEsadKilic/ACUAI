@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy pin unpin ]
   before_action :authenticate_user!, only: %i[ new create edit update destroy pin unpin ]
+  before_action :authorize_user!, only: %i[ edit update destroy ]
 
   # if you want only logged in users to be able to create a new post
   # before_action :authenticate_user!, only: %i[ new create edit update destroy ]
@@ -90,16 +91,24 @@ class PostsController < ApplicationController
   def pinned
     @posts = Post.pinned.order(created_at: :desc)
   end
+
   def announcements
     @posts = Post.announcement.order(created_at: :desc)
   end
-
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  # Check if the current user is the owner of the post
+  def authorize_user!
+    unless current_user == @post.user
+      flash[:alert] = "You are not authorized to do that."
+      redirect_to post_path(@post)
+    end
   end
 
   # Only allow a list of trusted parameters through.

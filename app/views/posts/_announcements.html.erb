@@ -2,6 +2,7 @@
 
 <% @announcements.each do |announcement| %>
   <div id="<%= dom_id announcement %>">
+    <%#= render "posts/post", post: announcement %>
     <hr>
     <p>
       <strong>Title:</strong>
@@ -15,9 +16,9 @@
         Anonymous
       <% end %>
     </p>
-    <p>
-      <strong>Body:</strong>
-      <%= announcement.body %>
-    </p>
+<!--    <p>-->
+<!--      <strong>Body:</strong>-->
+      <%#= announcement.body %>
+<!--    </p>-->
   </div>
 <% end %>

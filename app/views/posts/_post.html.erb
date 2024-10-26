@@ -44,4 +44,12 @@
     <p>No attachments</p>
   <% end %>
 
+  <strong>Created:</strong>
+  <%= time_ago_in_words(post.created_at) %> ago
+  </p>
+  <p>
+    <strong>Updated:</strong>
+    <%= time_ago_in_words(post.updated_at) %> ago
+  </p>
+
 </div>
