@@ -1,0 +1,23 @@
+<h1>Announcements</h1>
+
+<% @announcements.each do |announcement| %>
+  <div id="<%= dom_id announcement %>">
+    <hr>
+    <p>
+      <strong>Title:</strong>
+      <%= link_to announcement.title, announcement %>
+    </p>
+    <p>
+      <strong>Author:</strong>
+      <% if announcement.user %>
+        <%= link_to announcement.user.name, user_profile_path(announcement.user) %>
+      <% else %>
+        Anonymous
+      <% end %>
+    </p>
+    <p>
+      <strong>Body:</strong>
+      <%= announcement.body %>
+    </p>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Topics</h1>
+
+<% @topics.each do |topic| %>
+
+  <!-- <a href="posts?topic_id=<%#= topic.id %>" class="btn btn-sm btn-outline-light mt-2 ms-2 dontbecomeinviswhenhovered">-->
+  <!-- don't use the above line because it will not work with the Rails router -->
+  <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
+    <strong>
+      <%= topic.name %>
+    </strong> <br>
+    <%= topic.description %>
+  </a>
+<% end %>

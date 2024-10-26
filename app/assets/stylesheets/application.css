@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.dontbecomeinviswhenhovered:hover {
+  color: black;
+}
+
+.outlined {
+  border-left: 1px solid #54575B;
+  border-right: 1px solid #54575B;
+}
+
+.scrollable {
+  height: 100vh; /* Adjust the height as needed */
+  overflow-y: auto;
+}

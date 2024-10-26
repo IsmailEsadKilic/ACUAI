@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   def index
     if params[:search].present?
       @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order(created_at: :desc)
+    elsif params[:topic_id].present?
+      @posts = Topic.find(params[:topic_id]).posts.order(created_at: :desc)
     else
       @posts = Post.all.order(created_at: :desc)
     end
@@ -88,6 +90,10 @@ class PostsController < ApplicationController
   def pinned
     @posts = Post.pinned.order(created_at: :desc)
   end
+  def announcements
+    @posts = Post.announcement.order(created_at: :desc)
+  end
+
 
   private
 
@@ -98,6 +104,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body, :pinned, uploads: [])
+    params.require(:post).permit(:title, :body, :pinned, :announcement, :topic_id, uploads: [])
   end
 end

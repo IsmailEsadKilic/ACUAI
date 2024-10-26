@@ -1,4 +1,5 @@
 <div id="<%= dom_id post %>">
+  <hr>
   <p>
     <strong>Title:</strong>
     <%= post.title %>
@@ -12,6 +13,18 @@
       Anonymous
     <% end %>
   </p>
+
+  <% if post.topic %>
+    <p>
+      <strong>Topic:</strong>
+      <%= post.topic.name %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Topic:</strong>
+      Uncategorized
+    </p>
+  <% end %>
 
   <p>
     <strong>Body:</strong>

@@ -27,6 +27,16 @@
   </div>
 
   <div>
+    <%= form.label :announcement, "Mark as Announcement", style: "display: block" %>
+    <%= form.check_box :announcement %>
+  </div>
+
+  <div>
+    <%= form.label :topic_id, "Select Topic", style: "display: block" %>
+    <%= form.collection_select :topic_id, Topic.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

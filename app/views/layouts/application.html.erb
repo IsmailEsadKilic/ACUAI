@@ -21,9 +21,9 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body>
+<body style="zoom: 130%">
 <header>
-  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="<%= root_path %>">
         <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded" style="width: 40px; height: 40px;">
@@ -38,8 +38,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">
-            About
+<!--          should go to root_path/help-->
+          <a class="nav-link" href="<%= help_path %>">
+            How to Use
           </a>
         </li>
       </ul>
@@ -50,8 +51,13 @@
       </a>
 
       <%= form_with url: posts_path, method: :get, local: true, html: { class: "d-flex ms-2" } do %>
-        <%= text_field_tag :search, params[:search], class: "form-control me-sm-2", placeholder: "Search Posts" %>
-        <%= submit_tag "Search", class: "btn btn-secondary my-2 my-sm-0" %>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Posts" %>
+          <%= submit_tag "Search", class: "btn btn-dark" %>
+        </div>
       <% end %>
 
       <% if user_signed_in? %>
@@ -91,10 +97,20 @@
       <% end %>
     </div>
   </nav>
-  <%= render "layouts/alerts" %>
 </header>
-<main>
-  <%= yield %>
+<main class="container-fluid" style="padding-top: 70px">
+  <div class="row justify-content-center">
+    <div class="col-2 scrollable">
+      <%= render "shared/topics" %>
+    </div>
+    <div class="container col outlined scrollable">
+      <%= render "layouts/alerts" %>
+      <%= yield %>
+    </div>
+    <div class="col-3 scrollable">
+      <%= render 'posts/announcements' %>
+    </div>
+  </div>
 </main>
 </body>
 </html>

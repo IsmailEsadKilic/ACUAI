@@ -15,11 +15,9 @@
   <strong>Posts:</strong>
   <%= @user.posts.count %>
 </p>
-<hr>
 <% @user.posts.each do |post| %>
   <%= render post %>
   <p>
     <%= link_to "Show this post", post %>
   </p>
-  <hr>
 <% end %>
