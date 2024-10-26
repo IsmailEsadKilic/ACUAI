@@ -26,10 +26,12 @@
     <%= form.file_field :uploads, multiple: true %>
   </div>
 
-  <div>
-    <%= form.label :announcement, "Mark as Announcement", style: "display: block" %>
-    <%= form.check_box :announcement %>
-  </div>
+  <% if current_user.admin? %>
+    <div>
+      <%= form.label :announcement, "Mark as Announcement", style: "display: block" %>
+      <%= form.check_box :announcement %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.label :topic_id, "Select Topic", style: "display: block" %>

@@ -1,13 +1,46 @@
 <h1>Topics</h1>
 
+<% if current_user&.admin? %>
+  <!--        <a class="btn" style="background: #003D7E" href="<%#= new_topic_path %>">-->
+  <a class="btn" style="background: #003D7E" href="<%= new_topic_path %>">
+    <i class="bi bi-plus"></i>
+    New Topic
+  </a>
+<% end %>
+
 <% @topics.each do |topic| %>
 
   <!-- <a href="posts?topic_id=<%#= topic.id %>" class="btn btn-sm btn-outline-light mt-2 ms-2 dontbecomeinviswhenhovered">-->
   <!-- don't use the above line because it will not work with the Rails router -->
-  <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
-    <strong>
-      <%= topic.name %>
-    </strong> <br>
-    <%= topic.description %>
-  </a>
+
+  <% if current_user&.admin? %>
+
+    <div class="btn-group mt-2">
+      <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light dontbecomeinviswhenhovered ">
+        <strong>
+          <%= topic.name %>
+        </strong> <br>
+        <%= topic.description %>
+      </a>
+      <div class="btn-group-vertical">
+        <a href="<%= edit_topic_path(topic) %>" class="btn btn-sm btn-outline-light dontbecomeinviswhenhovered" style="border-top-left-radius: 0">
+          Edit
+        </a>
+        <%= link_to "Delete", topic, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-sm btn-outline-light dontbecomeinviswhenhovered", style: "border-bottom-left-radius: 0" %>
+        <!-- how do i make this DELETE instead of GET?? also how do i add a confirmation dialog?-->
+<!--        <a href="<%##= topic_path(topic) %>"-->
+<!--        class="btn btn-sm btn-outline-light dontbecomeinviswhenhovered" style="border-bottom-left-radius: 0">-->
+<!--        Delete-->
+        </a>
+      </div>
+    </div>
+  <% else %>
+
+    <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
+      <strong>
+        <%= topic.name %>
+      </strong> <br>
+      <%= topic.description %>
+    </a>
+  <% end %>
 <% end %>

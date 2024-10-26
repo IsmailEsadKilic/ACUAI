@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy pin unpin ]
-  before_action :authenticate_user!, only: %i[ new create edit update destroy pin unpin ]
+  # before_action :authenticate_user!, only: %i[ new create edit update destroy pin unpin ]
+  before_action :authenticate_user!, except: %i[ index show pinned announcements ]
   before_action :authorize_user!, only: %i[ edit update destroy ]
+  before_action :check_admin!, only: %i[ pin unpin ]
 
   # if you want only logged in users to be able to create a new post
   # before_action :authenticate_user!, only: %i[ new create edit update destroy ]
@@ -36,12 +38,10 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    if user_signed_in?
-      "User signed in"
-      @post = current_user.posts.build(post_params)
-    else
-      "User not signed in"
-      @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
+
+    unless current_user.admin?
+      @post.pinned = false
     end
 
     respond_to do |format|
@@ -57,6 +57,11 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+
+    unless current_user.admin?
+      post_params.delete(:pinned)
+    end
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: "Post was successfully updated." }
@@ -105,7 +110,17 @@ class PostsController < ApplicationController
 
   # Check if the current user is the owner of the post
   def authorize_user!
-    unless current_user == @post.user
+    unless current_user == @post.user || current_user.admin?
+      flash[:alert] = "You are not authorized to do that."
+      redirect_to post_path(@post)
+    end
+  end
+
+  # Check if the current user is an admin
+  # This is a simple way to check if a user is an admin
+  # You can implement a more complex authorization system
+  def check_admin!
+    unless current_user.admin?
       flash[:alert] = "You are not authorized to do that."
       redirect_to post_path(@post)
     end

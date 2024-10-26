@@ -38,7 +38,7 @@
           </a>
         </li>
         <li class="nav-item">
-<!--          should go to root_path/help-->
+          <!--          should go to root_path/help-->
           <a class="nav-link" href="<%= help_path %>">
             How to Use
           </a>
@@ -71,8 +71,13 @@
         </a>
         <div class="dropdown ms-2">
           <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle"></i>
-            <%= current_user.name %>
+            <% if current_user.admin? %>
+              <i class="bi bi-shield-fill" style="color: yellow"></i>
+              Admin: <%= current_user.name %>
+            <% else %>
+              <i class="bi bi-person-circle"></i>
+              <%= current_user.name %>
+            <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
             <li>
@@ -80,6 +85,9 @@
             </li>
             <li>
               <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "See Posts", user_profile_path(current_user), class: "dropdown-item" %>
             </li>
           </ul>
         </div>

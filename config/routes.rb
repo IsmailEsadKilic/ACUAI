@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :uploaded_files, only: %i[index new create show]
+  resources :topics, only: %i[ new create edit update destroy]
 
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -37,5 +38,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "posts#index"
-
 end

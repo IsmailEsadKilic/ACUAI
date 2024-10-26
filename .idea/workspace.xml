@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="added topics (no way to add them yet) added search, 3 column styling">
-      <change afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
+    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="added owner authorization">
+      <change afterPath="$PROJECT_DIR$/app/views/topics/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/topics/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/topics/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/posts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/posts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/uploaded_files_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/uploaded_files_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/_announcements.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_announcements.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/_post.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_post.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/shared/_topics.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_topics.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/icon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,21 +64,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Rails.ACUAI.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;iso&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/ruby/ACUAI&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Rails.ACUAI.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "iso",
+    "last_opened_file_path": "C:/dev/ruby/ACUAI/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\ruby\ACUAI\public" />
+    </key>
+  </component>
   <component name="RunManager" selected="Rails.ACUAI">
     <configuration name="ACUAI" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="ACUAI" />
@@ -155,7 +169,7 @@
       <workItem from="1729793225253" duration="1476000" />
       <workItem from="1729860908677" duration="11100000" />
       <workItem from="1729918747381" duration="11288000" />
-      <workItem from="1729953926077" duration="1672000" />
+      <workItem from="1729953926077" duration="9313000" />
     </task>
     <task id="LOCAL-00001" summary="now anons cant post&#10;before adding active storage">
       <option name="closed" value="true" />
@@ -189,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729930137926</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added owner authorization">
+      <option name="closed" value="true" />
+      <created>1729956182645</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729956182645</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +222,8 @@
     <MESSAGE value="added file uploading" />
     <MESSAGE value="added post pinning, and post searching" />
     <MESSAGE value="added topics (no way to add them yet) added search, 3 column styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="added topics (no way to add them yet) added search, 3 column styling" />
+    <MESSAGE value="added owner authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="added owner authorization" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ACUAI@ACUAI.rcov" NAME="ACUAI Coverage Results" MODIFIED="1729713042999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ACUAI" />

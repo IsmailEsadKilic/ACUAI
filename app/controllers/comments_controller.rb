@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
 
   def authorize_user!
     @post = Post.find(params[:post_id])
-    unless current_user == @post.user
+    unless current_user == @post.user || current_user.admin?
       flash[:alert] = "You are not authorized to do that."
       redirect_to post_path(@post)
     end

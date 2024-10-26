@@ -1,4 +1,6 @@
 class UploadedFilesController < ApplicationController
+  before_action :authenticate_user!, except: %i[ index show ]
+  before_action :check_admin!, only: %i[ new create ]
 
   def index
     @uploaded_files = UploadedFile.all
@@ -22,6 +24,13 @@ class UploadedFilesController < ApplicationController
   end
 
   private
+
+  def check_admin!
+    unless current_user.admin?
+      flash[:alert] = "You are not authorized to do that."
+      redirect_to root_path
+    end
+  end
 
   def uploaded_file_params
     params.require(:uploaded_file).permit(:name, :upload)

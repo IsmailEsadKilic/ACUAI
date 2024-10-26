@@ -1,9 +1,9 @@
 <div class="comment-<%= comment.id %> container" style="border: 1px solid white; padding: 1em; margin: 1em">
   <%= comment.user.name %>
   <span> Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
-  <% if current_user == comment.user %>
+  <% if current_user == comment.user || current_user == post.user || current_user.admin? %>
   <div class="button-group float-end">
-    <%= button_to "Delete", [post, comment], class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Delete", [post, comment], data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
   </div>
   <% end %>
     <hr>
