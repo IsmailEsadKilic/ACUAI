@@ -1,5 +1,11 @@
 <div id="<%= dom_id post %>">
   <hr>
+  <% if post.pinned %>
+    <p>
+      pinned
+      <i class="bi bi-pin-fill"></i>
+    </p>
+  <% end %>
   <p>
     <strong>Title:</strong>
     <%= post.title %>

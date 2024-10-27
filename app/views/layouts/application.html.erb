@@ -45,16 +45,15 @@
         </li>
       </ul>
 
-      <a class="btn" style="background: #003D7E" href="<%= pinned_posts_path %>">
-        <i class="bi bi-pin-fill"></i>
-        Pinned Posts
-      </a>
-
-      <%= form_with url: posts_path, method: :get, local: true, html: { class: "d-flex ms-2" } do %>
+      <%= form_with url: posts_path,
+                    method: :get, local: true, html: { class: "d-flex ms-2" } do %>
         <div class="input-group">
           <span class="input-group-text">
             <i class="bi bi-search"></i>
           </span>
+          <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
+          <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
+
           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Posts" %>
           <%= submit_tag "Search", class: "btn btn-dark" %>
         </div>

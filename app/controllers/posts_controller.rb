@@ -11,14 +11,28 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
 
   def index
-    if params[:search].present?
-      @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order(created_at: :desc)
+    @posts = Post.all
+
+    if params[:search].present? && params[:topic_id].present?
+      @posts = @posts.where("title LIKE ?", "%#{params[:search]}%").where(topic_id: params[:topic_id])
+    elsif params[:search].present?
+      @posts = @posts.where("title LIKE ?", "%#{params[:search]}%")
     elsif params[:topic_id].present?
-      @posts = Topic.find(params[:topic_id]).posts.order(created_at: :desc)
+      @posts = Topic.find(params[:topic_id]).posts
+    end
+
+    case params[:order]
+    when "pinned"
+      @posts = @posts.order(pinned: :desc, created_at: :desc)
+    when "new"
+      @posts = @posts.order(created_at: :desc)
+    when "old"
+      @posts = @posts.order(created_at: :asc)
     else
-      @posts = Post.all.order(created_at: :desc)
+      @posts = @posts.order(created_at: :desc)
     end
   end
+
 
   # GET /posts/1 or /posts/1.json
   def show

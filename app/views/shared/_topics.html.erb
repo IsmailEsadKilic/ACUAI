@@ -8,6 +8,12 @@
   </a>
 <% end %>
 
+<a class="btn mt-2" style="background: #003D7E" href="<%= pinned_posts_path %>">
+  <i class="bi bi-pin-fill"></i>
+  All Pinned Posts
+</a>
+
+<div>
 <% @topics.each do |topic| %>
 
   <!-- <a href="posts?topic_id=<%#= topic.id %>" class="btn btn-sm btn-outline-light mt-2 ms-2 dontbecomeinviswhenhovered">-->
@@ -35,12 +41,14 @@
       </div>
     </div>
   <% else %>
-
-    <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
-      <strong>
-        <%= topic.name %>
-      </strong> <br>
-      <%= topic.description %>
-    </a>
+    <div>
+      <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
+        <strong>
+          <%= topic.name %>
+        </strong> <br>
+        <%= topic.description %>
+      </a>
+    </div>
   <% end %>
 <% end %>
+</div>
