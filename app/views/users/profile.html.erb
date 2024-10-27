@@ -11,6 +11,14 @@
   <strong>Joined:</strong>
   <%= @user.created_at.strftime("%B %d, %Y") %>
 </p>
+
+<% if current_user.admin? %>
+  <div class="button-group">
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to "Delete", @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+
+  </div>
+<% end %>
 <p>
   <strong>Posts:</strong>
   <%= @user.posts.count %>

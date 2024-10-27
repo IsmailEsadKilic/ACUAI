@@ -8,10 +8,6 @@ mind the singular/plural naming
 
 TODO
 
-admin panel
-admin should
-delete or edit any post or comment
-delete or edit any user
-crud topics
+admin should be able to edit profiles
 
 internationalization

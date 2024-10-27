@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :uploaded_files, only: %i[index new create show]
   resources :topics, only: %i[ new create edit update destroy]
 
+  resources :users, only: %i[ edit update destroy]
+
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
