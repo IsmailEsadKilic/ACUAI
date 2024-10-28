@@ -27,3 +27,13 @@
   height: 100vh; /* Adjust the height as needed */
   overflow-y: auto;
 }
+
+.topics-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic .btn{
+  width: 100%;
+  text-align: start;
+}
