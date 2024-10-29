@@ -1,6 +1,6 @@
 class UploadedFilesController < ApplicationController
   before_action :authenticate_user!, except: %i[ index show ]
-  before_action :check_admin!, only: %i[ new create ]
+  before_action :check_admin!, only: %i[ new create destroy ]
 
   def index
     @uploaded_files = UploadedFile.all
@@ -21,6 +21,13 @@ class UploadedFilesController < ApplicationController
 
   def show
     @uploaded_file = UploadedFile.find(params[:id])
+  end
+
+  def destroy
+    print "hello"
+    @uploaded_file = UploadedFile.find(params[:id])
+    @uploaded_file.destroy
+    redirect_to uploaded_files_path, notice: "File was successfully deleted."
   end
 
   private

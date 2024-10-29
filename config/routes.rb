@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :uploaded_files, only: %i[index new create show]
+  resources :uploaded_files, only: %i[index new create show destroy]
   resources :topics, only: %i[ new create edit update destroy]
 
   resources :users, only: %i[ edit update destroy]

@@ -9,3 +9,8 @@
     <%= link_to @uploaded_file.upload.filename, rails_blob_path(@uploaded_file.upload, disposition: "attachment") %>
   </p>
 <% end %>
+
+<%= link_to 'Back', uploaded_files_path %>
+<%= link_to 'Delete', @uploaded_file, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2' %>
+
+
