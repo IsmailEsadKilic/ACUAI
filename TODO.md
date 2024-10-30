@@ -10,6 +10,8 @@ admin can delete uploads or upload files
 
 TODO
 - [x] add a way to delete uploads
+- [x] post view count = tarik
+- [x] post like count = tarik
 - [ ] internationalize the app
 - [ ] add rich text editing to posts and comments (use ckeditor or trix)
 - [ ] style _post

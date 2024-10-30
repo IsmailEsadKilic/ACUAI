@@ -37,6 +37,10 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
+
+    current = @post.views ? @post.views : 0
+    @post.update(views: current + 1)
+
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
   end
@@ -144,4 +148,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :pinned, :announcement, :topic_id, uploads: [])
   end
-end
+  end
