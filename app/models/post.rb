@@ -7,4 +7,7 @@ class Post < ApplicationRecord
   has_many_attached :uploads
   scope :pinned, -> { where(pinned: true) }
   scope :announcement, -> { where(announcement: true) }
+
+  has_many :likes, dependent: :destroy
+  has_many :liked_by_users, through: :likes, source: :user
 end

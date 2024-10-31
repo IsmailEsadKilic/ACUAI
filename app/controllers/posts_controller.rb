@@ -1,12 +1,8 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy pin unpin ]
-  # before_action :authenticate_user!, only: %i[ new create edit update destroy pin unpin ]
+  before_action :set_post, only: %i[ show edit update destroy pin unpin like unlike ]
   before_action :authenticate_user!, except: %i[ index show pinned announcements ]
   before_action :authorize_user!, only: %i[ edit update destroy ]
   before_action :check_admin!, only: %i[ pin unpin ]
-
-  # if you want only logged in users to be able to create a new post
-  # before_action :authenticate_user!, only: %i[ new create edit update destroy ]
 
   # GET /posts or /posts.json
 
@@ -37,10 +33,9 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
-
-    current = @post.views ? @post.views : 0
-    @post.update(views: current + 1)
-
+    if action_name == 'show'
+      @post.increment!(:views)
+    end
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
   end
@@ -103,6 +98,7 @@ class PostsController < ApplicationController
 
   def pin
     @post.update(pinned: true)
+
     redirect_to @post, notice: "Post was successfully pinned."
   end
 
@@ -117,6 +113,16 @@ class PostsController < ApplicationController
 
   def announcements
     @posts = Post.announcement.order(created_at: :desc)
+  end
+
+  def like
+    @post.likes.create(user: current_user)
+    redirect_to @post, notice: "Post was successfully liked."
+  end
+
+  def unlike
+    @post.likes.find_by(user: current_user).destroy
+    redirect_to @post, notice: "Post was successfully unliked."
   end
 
   private

@@ -1,12 +1,12 @@
 <div class="container">
   <%= render @post %>
-  <% if current_user == @post.user || current_user.admin? %>
+  <% if current_user == @post.user || current_user&.admin? %>
     <div>
       <%= button_to "Edit this post", edit_post_path(@post), method: :get, class: 'btn btn-primary mt-2' %>
       <%= link_to "Destroy this post", @post, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2' %>
     </div>
   <% end %>
-  <% if current_user.admin? %>
+  <% if current_user&.admin? %>
     <% if @post.pinned %>
       <%= button_to 'Unpin Post', unpin_post_path(@post), method: :patch, class: 'btn btn-warning mt-2' %>
     <% else %>

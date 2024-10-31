@@ -26,8 +26,10 @@
   </p>
 
   <p>
-    <strong>Likes:</strong>
-    <%= post.likes %>
+    <strong>Liked by:</strong>
+    <% post.likes.each do |like| %>
+      <%= like.user.name %>
+    <% end %>
   </p>
 
   <% if post.topic %>
@@ -68,4 +70,9 @@
     <%= time_ago_in_words(post.updated_at) %> ago
   </p>
 
+  <% if current_user&.liked_posts&.include?(post) %>
+    <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>
+  <% else %>
+    <%= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2' %>
+  <% end %>
 </div>

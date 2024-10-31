@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       patch :unpin
     end
 
+    member do
+      post :like
+      delete :unlike
+    end
+
     collection do
       get :pinned
       get :announcements
