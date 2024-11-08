@@ -20,17 +20,10 @@
     <% end %>
   </p>
 
-  <p>
-    <strong>Views:</strong>
-    <%= post.views %>
-  </p>
 
   <p>
-    <strong>Liked by:</strong>
-    <% post.likes.each do |like| %>
-      <%= like.user.name %>
-    <% end %>
-  </p>
+    <strong>Likes:</strong>
+    <%= post.likes.count %>  </p>
 
   <% if post.topic %>
     <p>

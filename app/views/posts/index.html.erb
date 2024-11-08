@@ -9,8 +9,6 @@
   <% end %>
 </h1>
 
-localhost/posts?order=pinned
-
 <div class="btn-group">
   <%= link_to "Pinned", posts_path(request.query_parameters.merge(order: 'pinned')), class: "btn btn-outline-primary #{'active' if params[:order] == 'pinned'}" %>
   <%= link_to "New", posts_path(request.query_parameters.merge(order: 'new')), class: "btn btn-outline-primary #{'active' if params[:order] == 'new' || !params[:order]}" %>
