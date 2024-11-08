@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="admin can destroy added views">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/_post.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_post.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="admin can destroy added views" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,6 +164,7 @@
       <workItem from="1730627427155" duration="20000" />
       <workItem from="1731079334938" duration="82000" />
       <workItem from="1731079423591" duration="56000" />
+      <workItem from="1731079546530" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="now anons cant post&#10;before adding active storage">
       <option name="closed" value="true" />
@@ -256,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730273712149</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="admin can destroy added views">
+      <option name="closed" value="true" />
+      <created>1731079740295</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731079740295</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
