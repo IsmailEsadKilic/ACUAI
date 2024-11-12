@@ -21,100 +21,102 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body style="zoom: 100%">
-<header>
-  <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="<%= root_path %>">
-        <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded" style="width: 40px; height: 40px;">
-      </a>
-      <a class="navbar-brand" href="<%= root_path %>">
-        ACUAI
-      </a>
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="<%= uploaded_files_path %>">
-            Files
-          </a>
-        </li>
-        <li class="nav-item">
-          <!--          should go to root_path/help-->
-          <a class="nav-link" href="<%= help_path %>">
-            How to Use
-          </a>
-        </li>
-      </ul>
+<body class="not-scrollable" style="zoom: 100%">
+<main class="container-fluid" style="padding-right: 0; padding-left: 0">
+  <header>
+    <nav class="bg-primary navbar navbar-expand-lg" data-bs-theme="dark" style="padding-left: 0.5em; background-color: #0C0C0D">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= root_path %>">
+          <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded" style="width: 40px; height: 40px;">
+        </a>
+        <a class="navbar-brand" href="<%= root_path %>">
+          ACUAI
+        </a>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="<%= uploaded_files_path %>">
+              Files
+            </a>
+          </li>
+          <li class="nav-item">
+            <!--          should go to root_path/help-->
+            <a class="nav-link" href="<%= help_path %>">
+              How to Use
+            </a>
+          </li>
+        </ul>
 
-      <%= form_with url: posts_path,
-                    method: :get, local: true, html: { class: "d-flex ms-2" } do %>
-        <div class="input-group">
+        <%= form_with url: posts_path,
+                      method: :get, local: true, html: { class: "d-flex ms-2" } do %>
+          <div class="input-group">
           <span class="input-group-text">
             <i class="bi bi-search"></i>
           </span>
-          <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
-          <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
+            <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
+            <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
 
-          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Posts" %>
-          <%= submit_tag "Search", class: "btn btn-dark" %>
-        </div>
-      <% end %>
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Posts" %>
+            <%= submit_tag "Search", class: "btn btn-dark" %>
+          </div>
+        <% end %>
 
-      <% if user_signed_in? %>
-        <a class="btn ms-2" style="background: #003D7E" href="<%= new_post_path %>">
-          <i class="bi bi-plus-circle-fill"></i>
-          New Post
-        </a>
-        <a class="btn ms-2" style="background: #003D7E" href="<%= new_uploaded_file_path %>">
-          <i class="bi bi-file-arrow-up-fill"></i>
-          Upload File
-        </a>
-        <div class="dropdown ms-2">
-          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if current_user.admin? %>
-              <i class="bi bi-shield-fill" style="color: yellow"></i>
-              Admin: <%= current_user.name %>
-            <% else %>
-              <i class="bi bi-person-circle"></i>
-              <%= current_user.name %>
-            <% end %>
+        <% if user_signed_in? %>
+          <a class="btn ms-2" style="background: #003D7E" href="<%= new_post_path %>">
+            <i class="bi bi-plus-circle-fill"></i>
+            New Post
           </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
-            <li>
-              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "See Posts", user_profile_path(current_user), class: "dropdown-item" %>
-            </li>
-          </ul>
-        </div>
-      <% else %>
-        <% if controller_name != "sessions" %>
-          <a class="btn ms-2" href="<%= new_user_session_path %>">
-            Sign in
+          <a class="btn ms-2" style="background: #003D7E" href="<%= new_uploaded_file_path %>">
+            <i class="bi bi-file-arrow-up-fill"></i>
+            Upload File
           </a>
+          <div class="dropdown ms-2">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <% if current_user.admin? %>
+                <i class="bi bi-shield-fill" style="color: yellow"></i>
+                Admin: <%= current_user.name %>
+              <% else %>
+                <i class="bi bi-person-circle"></i>
+                <%= current_user.name %>
+              <% end %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
+              <li>
+                <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "See Posts", user_profile_path(current_user), class: "dropdown-item" %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <% if controller_name != "sessions" %>
+            <a class="btn ms-2" href="<%= new_user_session_path %>">
+              Sign in
+            </a>
+          <% end %>
+          <% if controller_name != "registrations" %>
+            <a class="btn ms-2" href="<%= new_user_registration_path %>">
+              Sign up
+            </a>
+          <% end %>
         <% end %>
-        <% if controller_name != "registrations" %>
-          <a class="btn ms-2" href="<%= new_user_registration_path %>">
-            Sign up
-          </a>
-        <% end %>
-      <% end %>
-    </div>
-  </nav>
-</header>
-<main class="container-fluid" style="padding-top: 70px">
-  <div class="row justify-content-center">
-    <div class="col-2 scrollable">
+      </div>
+    </nav>
+  </header>
+  <div class="row justify-content-center not-scrollable">
+    <div class="col-2 scrollable" style="margin-left: 0.5em" style="padding-bottom: 5em;">
       <%= render "shared/topics" %>
     </div>
-    <div class="container col outlined scrollable">
-      <%= render "layouts/alerts" %>
-      <%= yield %>
+    <div class="container col outlined" style="">
+      <div class=" scrollable" style="padding-bottom: 5em">
+        <%= render "layouts/alerts" %>
+        <%= yield %>
+      </div>
     </div>
-    <div class="col-3 scrollable">
+    <div class="col-3 scrollable " style="padding-bottom: 5em">
       <%= render 'posts/announcements' %>
     </div>
   </div>

@@ -14,6 +14,8 @@
  *= require_self
  */
 
+:root { --bs-btn-bg: #1D0042  !important; }
+
 .dontbecomeinviswhenhovered:hover {
   color: black;
 }
@@ -24,8 +26,12 @@
 }
 
 .scrollable {
-  height: 100vh; /* Adjust the height as needed */
+  height: 86vh; /* this is compensation for navbar. navbar is 14 */
   overflow-y: auto;
+}
+
+.not-scrollable {
+  overflow: hidden;
 }
 
 .topics-container {
@@ -36,4 +42,8 @@
 .topic .btn{
   width: 100%;
   text-align: start;
+}
+
+.doruk{
+  background-color: #1D0042;
 }

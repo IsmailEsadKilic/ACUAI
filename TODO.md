@@ -1,4 +1,4 @@
-DEVELOPMENT NOTES
+# DEVELOPMENT NOTES
 
 posts have has_many_attached :uploads
 uploaded_files have_one_attached :upload
@@ -16,6 +16,8 @@ TODO
 - [ ] internationalize the app = 
 - [ ] add rich text editing to posts and comments (use ckeditor or trix) = Arda
 - [ ] unit testing = Arda
+- [ ] e mailing
+- [ ] e mail confirmation
 - [ ] style _post
 - [ ] style _comment
 - [ ] style post/show
