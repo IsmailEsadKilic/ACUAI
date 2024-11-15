@@ -9,5 +9,6 @@ class Post < ApplicationRecord
   scope :announcement, -> { where(announcement: true) }
 
   has_many :likes, dependent: :destroy
+
   has_many :liked_by_users, through: :likes, source: :user
 end

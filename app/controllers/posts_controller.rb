@@ -10,7 +10,8 @@ class PostsController < ApplicationController
     @posts = Post.all
 
     if params[:search].present? && params[:topic_id].present?
-      @posts = @posts.where("title LIKE ?", "%#{params[:search]}%").where(topic_id: params[:topic_id])
+      @posts = @posts.where("title LIKE ?", "%#{params[:search]}%")
+                     .where(topic_id: params[:topic_id])
     elsif params[:search].present?
       @posts = @posts.where("title LIKE ?", "%#{params[:search]}%")
     elsif params[:topic_id].present?
@@ -154,4 +155,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :pinned, :announcement, :topic_id, uploads: [])
   end
-  end
+end

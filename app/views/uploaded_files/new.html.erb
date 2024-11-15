@@ -1,9 +1,12 @@
-<%= form_with(model: @uploaded_file, local: true) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+<div>
+  <h1>Upload a file</h1>
+  <%= form_with(model: @uploaded_file, local: true) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
 
-  <%= form.label :upload %>
-  <%= form.file_field :upload %>
+    <%= form.label :upload %>
+    <%= form.file_field :upload %>
 
-  <%= form.submit "Upload" %>
-<% end %>
+    <%= form.submit "Upload" %>
+  <% end %>
+</div>

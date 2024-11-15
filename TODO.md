@@ -24,3 +24,4 @@ TODO
 - [ ] style post/index
 - [ ] style comment/_form
 - [ ] style post/_form
+- [ ] subscribe to pewpioedfqws
