@@ -19,7 +19,7 @@
 <div class="container">
   <h2>Comments</h2>
   <%= render 'comments/form', post: @post %>
-  <% @comments.each do |tarik| %>
-    <%= render tarik, post: @post %>
+  <% @comments.each do |comment| %>
+    <%= render comment, post: @post %>
   <% end %>
 </div>
