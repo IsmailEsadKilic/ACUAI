@@ -11,17 +11,17 @@
   <% end %>
 </h1>
 
+sort by:
 <div class="btn-group">
   <%= link_to "Pinned", posts_path(request.query_parameters.merge(order: 'pinned')), class: "btn btn-outline-primary #{'active' if params[:order] == 'pinned'}" %>
   <%= link_to "New", posts_path(request.query_parameters.merge(order: 'new')), class: "btn btn-outline-primary #{'active' if params[:order] == 'new' || !params[:order]}" %>
   <%= link_to "Old", posts_path(request.query_parameters.merge(order: 'old')), class: "btn btn-outline-primary #{'active' if params[:order] == 'old'}" %>
 </div>
 
-<div id="posts">
+<div class="mt-2" id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+    <div style="cursor: pointer;" onclick="location.href='<%= post_path(post) %>';">
+      <%= render post %>
+    </div>
   <% end %>
 </div>

@@ -1,15 +1,21 @@
-<div id="<%= dom_id post %>">
-  <hr>
-  <% if post.pinned %>
-    <p>
-      pinned
-      <i class="bi bi-pin-fill"></i>
-    </p>
-  <% end %>
+<div id="<%= dom_id post %>" class="card post-card mt-1" style="padding: 10px">
   <p>
-    <strong>Title:</strong>
-    <%= post.title %>
+    <% if post.pinned %>
+        pinned
+        <i class="bi bi-pin-fill"></i>
+    <% end %>
+    <% if post.topic %>
+      <strong>Topic:</strong>
+      <%= post.topic.name %>
+    <% else %>
+      <strong>Topic:</strong>
+      Uncategorized
+    <% end %>
   </p>
+
+  <h2>
+    <%= post.title %>
+  </h2>
 
   <p>
     <strong>Author:</strong>
@@ -19,31 +25,12 @@
       Anonymous
     <% end %>
   </p>
-
-
   <p>
-    <strong>Likes:</strong>
-    <%= post.likes.count %>  </p>
-
-  <% if post.topic %>
-    <p>
-      <strong>Topic:</strong>
-      <%= post.topic.name %>
-    </p>
-  <% else %>
-    <p>
-      <strong>Topic:</strong>
-      Uncategorized
-    </p>
-  <% end %>
-
-  <p>
-    <strong>Body:</strong>
     <%= post.body %>
   </p>
 
   <% if post.uploads.attached? %>
-    <h3>Attachments:</h3>
+    <strong>Attachments:</strong>
     <ul>
       <% post.uploads.each do |upload| %>
         <li>
@@ -55,6 +42,7 @@
     <p>No attachments</p>
   <% end %>
 
+  <p>
   <strong>Created:</strong>
   <%= time_ago_in_words(post.created_at) %> ago
   </p>
@@ -62,6 +50,11 @@
     <strong>Updated:</strong>
     <%= time_ago_in_words(post.updated_at) %> ago
   </p>
+
+  <p>
+    <strong>Likes:</strong>
+    <%= post.likes.count %>  </p>
+  <p>
 
   <% if current_user&.liked_posts&.include?(post) %>
     <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>

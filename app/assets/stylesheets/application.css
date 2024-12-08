@@ -14,7 +14,6 @@
  *= require_self
  */
 
-:root { --bs-btn-bg: #1D0042  !important; }
 
 .dontbecomeinviswhenhovered:hover {
   color: black;
@@ -43,7 +42,10 @@
   width: 100%;
   text-align: start;
 }
+.post-card {
+  transition: background-color 0.1s ease;
+}
 
-.doruk{
-  background-color: #1D0042;
+.post-card:hover {
+  background-color: #2f3439; /* Change this to your desired color */
 }

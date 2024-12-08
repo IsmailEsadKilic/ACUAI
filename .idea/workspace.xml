@@ -7,7 +7,14 @@
     <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="master commit 8 11 2024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/posts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/comment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/comment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/_announcements.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_announcements.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/_post.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/_post.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/posts/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/posts/index.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +186,15 @@
       <workItem from="1731478632792" duration="3891000" />
       <workItem from="1731491691169" duration="4702000" />
       <workItem from="1731925274899" duration="1351000" />
+      <workItem from="1732095990652" duration="42000" />
+      <workItem from="1732096156453" duration="3000" />
+      <workItem from="1732776467594" duration="15000" />
+      <workItem from="1732776510797" duration="134000" />
+      <workItem from="1732779799257" duration="104000" />
+      <workItem from="1733149520373" duration="7023000" />
+      <workItem from="1733179844782" duration="7369000" />
+      <workItem from="1733207657715" duration="5765000" />
+      <workItem from="1733314145035" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="now anons cant post&#10;before adding active storage">
       <option name="closed" value="true" />

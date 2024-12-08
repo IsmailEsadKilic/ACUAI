@@ -1,24 +1,55 @@
 <h2>Announcements</h2>
 
-<% @announcements.each do |announcement| %>
-  <div id="<%= dom_id announcement %>">
-    <%#= render "posts/post", post: announcement %>
-    <hr>
-    <p>
-      <strong>Title:</strong>
-      <%= link_to announcement.title, announcement %>
-    </p>
-    <p>
-      <strong>Author:</strong>
-      <% if announcement.user %>
-        <%= link_to announcement.user.name, user_profile_path(announcement.user) %>
-      <% else %>
-        Anonymous
-      <% end %>
-    </p>
+<%# @announcements.each do |announcement| %>
+<!--  <div id="<%#= dom_id announcement %>">-->
+<!--    <hr>-->
+<!--    <p>-->
+<!--      <strong>Title:</strong>-->
+      <%#= link_to announcement.title, announcement %>
+<!--    </p>-->
+<!--    <p>-->
+<!--      <strong>Author:</strong>-->
+      <%# if announcement.user %>
+        <%#= link_to announcement.user.name, user_profile_path(announcement.user) %>
+      <%# else %>
+<!--        Anonymous-->
+      <%# end %>
+<!--    </p>-->
 <!--    <p>-->
 <!--      <strong>Body:</strong>-->
       <%#= announcement.body %>
 <!--    </p>-->
-  </div>
+<!--  </div>-->
+<%# end %>
+
+<% @announcements.each do |announcement| %>
+
+<div id="<%= dom_id announcement %>" class="card post-card mt-1" style="padding: 10px; cursor: pointer;" onclick="location.href='<%= post_path(announcement) %>';">
+  <p>
+    <% if announcement.pinned %>
+      <i class="bi bi-pin-fill"></i>
+    <% end %>
+    <% if announcement.topic %>
+      <strong>
+      <%= announcement.topic.name %>
+    <% else %>
+      Uncategorized
+    <% end %>
+    </strong>
+    <% if announcement.user %>
+      <%= link_to announcement.user.name, user_profile_path(announcement.user) %>
+    <% else %>
+      Anonymous
+    <% end %>
+    <%= time_ago_in_words(announcement.created_at) %> ago
+  </p>
+
+  <h2>
+    <%= announcement.title %>
+  </h2>
+
+  <p>
+    <%= announcement.body %>
+  </p>
+</div>
 <% end %>
