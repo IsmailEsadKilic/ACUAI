@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="Added Rich Text Frontend Support">
-      <change beforePath="$PROJECT_DIR$/.idea/ACUAI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ACUAI.iml" afterDir="false" />
+    <list default="true" id="f4bd4151-a92a-4f39-8ef5-10623d32e1c6" name="Changes" comment="Added file type checking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/uploaded_files_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/uploaded_files_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/post.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/post.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/uploaded_file.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/uploaded_file.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/uploaded_files/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/uploaded_files/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/uploaded_files/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/uploaded_files/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +56,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;RichTextEditingBranch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;FileSanitizationBranch&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/dev/ruby/ACUAI/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -210,7 +204,8 @@
       <workItem from="1734799983893" duration="5820000" />
       <workItem from="1734855605475" duration="612000" />
       <workItem from="1734856224257" duration="3482000" />
-      <workItem from="1734861437954" duration="2739000" />
+      <workItem from="1734861437954" duration="3042000" />
+      <workItem from="1734867607110" duration="671000" />
     </task>
     <task id="LOCAL-00001" summary="now anons cant post&#10;before adding active storage">
       <option name="closed" value="true" />
@@ -356,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734859971920</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added file type checking">
+      <option name="closed" value="true" />
+      <created>1734864266388</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1734864266388</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +393,8 @@
     <MESSAGE value="ozgesahin" />
     <MESSAGE value="added rich text support" />
     <MESSAGE value="Added Rich Text Frontend Support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Rich Text Frontend Support" />
+    <MESSAGE value="Added file type checking" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added file type checking" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ACUAI@ACUAI.rcov" NAME="ACUAI Coverage Results" MODIFIED="1731079378757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="ACUAI" />
