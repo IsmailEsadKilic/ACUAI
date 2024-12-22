@@ -1,11 +1,21 @@
-<div>
+<div class="container">
   <h1>Upload a file</h1>
   <%= form_with(model: @uploaded_file, local: true) do |form| %>
+    <% if @uploaded_file.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@uploaded_file.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @uploaded_file.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <%= form.label :name %>
     <%= form.text_field :name %>
 
-    <%= form.label :upload %>
-    <%= form.file_field :upload %>
+    <%= form.label :file %>
+    <%= form.file_field :file %>
 
     <%= form.submit "Upload" %>
   <% end %>

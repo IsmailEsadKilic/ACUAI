@@ -40,6 +40,6 @@ class UploadedFilesController < ApplicationController
   end
 
   def uploaded_file_params
-    params.require(:uploaded_file).permit(:name, :upload)
+    params.require(:uploaded_file).permit(:name, :file)
   end
 end
