@@ -20,7 +20,7 @@
   <p>
     <strong>Author:</strong>
     <% if post.user %>
-      <%= link_to post.user.name, user_profile_path(post.user) %>
+      <%= link_to post.user.name, profile_user_path(post.user) %>
     <% else %>
       Anonymous
     <% end %>

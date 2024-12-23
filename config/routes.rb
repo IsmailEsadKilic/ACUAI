@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations',
   }
-  get "u/:id" => "users#profile", as: :user_profile
 
   resources :posts do
     member do
@@ -31,7 +30,11 @@ Rails.application.routes.draw do
   resources :uploaded_files, only: %i[index new create show destroy]
   resources :topics, only: %i[ new create edit update destroy]
 
-  resources :users, only: %i[ edit update destroy]
+  resources :users, only: %i[ edit update destroy] do
+    member do
+      get 'profile'
+    end
+  end
 
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

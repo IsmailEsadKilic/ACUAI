@@ -1,8 +1,21 @@
 <h1>User Profile</h1>
+<div class="navbar-profile-picture ms-2">
+  <% if @user.profile_picture.attached? %>
+    <%= image_tag @user.profile_picture.variant(resize_to_limit: [100, 100]), id: "navbar_profile_picture" %>
+  <% else %>
+    <i class="bi bi-person-circle"></i>
+  <% end %>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
 <p>
   <strong>Email:</strong>
   <%= @user.email %>

@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -11,6 +11,18 @@
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.rich_text_area :bio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_picture, id: "profile_picture_input" %>
+    <br>
+    <img id="profile_picture_preview" src="<%= url_for(resource.profile_picture) if resource.profile_picture.attached? %>" alt="Profile Picture Preview" style="max-width: 150px; max-height: 150px;">
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -46,3 +58,21 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const input = document.getElementById("profile_picture_input");
+        const preview = document.getElementById("profile_picture_preview");
+
+        input.addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
