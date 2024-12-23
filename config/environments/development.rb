@@ -14,6 +14,38 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # devise section
+
+  config.action_mailer.delivery_method = :smtp
+
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   domain: 'example.com',
+  #   user_name: '@gmail.com',
+  #   password: 'your_email_password',
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
+
+  #     user_name: ENV['GMAIL_USERNAME'],
+  #     password: ENV['GMAIL_PASSWORD'],
+  # create a .env file in the root of the project and add the following
+  # GMAIL_USERNAME=your_email@gmail.com
+  # GMAIL_PASSWORD=your_email_password
+
+  #this line breaks stuff
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+  # SMTP settings for mailcatcher gem
+  config.action_mailer.smtp_settings = {
+    address: '127.0.0.1',
+    port: 1025
+  }
+
+  ################
+
   # Enable server timing.
   config.server_timing = true
 
