@@ -67,6 +67,7 @@ trix-toolbar .trix-button--icon:disabled::before {
   opacity: 0.5;
 }
 
+
 pre {
   background-color: #08132e !important;
   color: #d0d0e3;
