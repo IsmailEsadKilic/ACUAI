@@ -58,6 +58,7 @@ trix-editor {
   color: white;
 }
 
+
 trix-toolbar .trix-button:disabled {
   filter: invert() grayscale(1) brightness(2);
 }
