@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 .dontbecomeinviswhenhovered:hover {
   color: black;
 }
