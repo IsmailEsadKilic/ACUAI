@@ -69,15 +69,18 @@
             <i class="bi bi-file-arrow-up-fill"></i>
             Upload File
           </a>
-          <% if user_signed_in? %>
-            <div class="navbar-profile-picture ms-2">
+          <div class="ms-2">
+
+          <%= render "layouts/notifications" %>
+          </div>
+
+          <div class="navbar-profile-picture ms-2">
               <% if current_user.profile_picture.attached? %>
                 <%= image_tag current_user.profile_picture.variant(resize_to_limit: [50, 50]), id: "navbar_profile_picture" %>
               <% else %>
               <i class="bi bi-person-circle"></i>
               <% end %>
             </div>
-          <% end %>
           <div class="dropdown ms-2">
             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
               <% if current_user.admin? %>

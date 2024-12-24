@@ -57,3 +57,6 @@ group :test do
 end
 
 gem "devise"
+
+# noticed 1.6.3
+gem 'noticed', '~> 1.6', '>= 1.6.3'
