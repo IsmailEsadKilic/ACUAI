@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_rich_text :bio
 
+  has_many :notifications, as: :recipient, dependent: :destroy
+
   def admin?
     admin
   end
