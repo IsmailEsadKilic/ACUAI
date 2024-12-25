@@ -22,7 +22,9 @@
   
   /* Sol Menü Margin ve Scrollable */
   .row .col-2.scrollable {
-    margin-left: 0.5em;
+    color: grey;
+    background-color: white;
+    border: 1px solid grey;
   }
   
   /* Sağ ve Sol Menü Scrollable Alt Padding */
@@ -44,18 +46,24 @@
   border-radius: 30px 0 0 30px;
   background-color: #e5ebee;
   color: #181c1f;
+  border: var(--bs-border-width) solid #ffffff;
   }
+  
 
   .form-control {
     border-radius: 0 30px 30px 0;
     background-color: #e5ebee;
     color: #5c6c74;
+    border: var(--bs-border-width) solid #ffffff; /* Diğer kenarlar */
+    border-left-color: #e5ebee; /* Sağ kenarın rengi */
     
   }
 
   .form-control:focus {
     background-color: #e5ebee;
     color: #5c6c74;
+    box-shadow: none;
+    border: none;
   }
 
   /* Search Posts placeholder metninin rengini değiştirme */
@@ -72,10 +80,31 @@ background-color: #fff !important; /* Buraya istediğiniz rengi girin */
     color: #8c9ea7;
 }
 
+.navbar-brand:hover {
+  color: #0865c7;
+}
+
 .nav-link {
     color: #5c6c74;
 
 }
+
+.nav-link:hover {
+  color: #003d7e;
+
+}
+
+/* Topics kısmı */
+.btn.mt-2 {
+  background: #003D7E;
+  margin-left: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+
 
 
   
