@@ -22,4 +22,11 @@ class Post < ApplicationRecord
       errors.add(:uploads, 'must be a PNG, JPG, JPEG, or PDF')
     end
   end
+
+  def notify_subscribers
+    subscribers = Subscription.where(poster_id: user_id)
+    subscribers.each do |subscriber|
+      PostNotification.with(post: self).deliver_later(subscriber.subscriber)
+    end
+  end
 end
