@@ -15,7 +15,10 @@ class Post < ApplicationRecord
   has_many :liked_by_users, through: :likes, source: :user
 
   has_noticed_notifications model_name: 'Notification'
+
   has_many :notifications, through: :user, dependent: :destroy
+
+  after_create_commit :notify_subscribers
 
   def correct_upload_mime_type
     if uploads.attached? && uploads.any? { |upload| !upload.content_type.in?(%w[image/png image/jpg image/jpeg application/pdf]) }
@@ -24,9 +27,8 @@ class Post < ApplicationRecord
   end
 
   def notify_subscribers
-    subscribers = Subscription.where(poster_id: user_id)
-    subscribers.each do |subscriber|
-      PostNotification.with(post: self).deliver_later(subscriber.subscriber)
+    self.user.users_that_subscribed.each do |user|
+      PostNotification.with(post: self).deliver_later(user)
     end
   end
 end

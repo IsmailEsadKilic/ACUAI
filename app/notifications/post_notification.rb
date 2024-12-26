@@ -6,7 +6,7 @@
 class PostNotification < Noticed::Base
   # Add your delivery methods
   #
-  # deliver_by :database
+  deliver_by :database
   # deliver_by :email, mailer: "UserMailer"
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"
@@ -23,7 +23,7 @@ class PostNotification < Noticed::Base
     "#{@user.name} created a new post titled #{@post.title.truncate_words(5)}"
   end
 
-  # def url
-  #   post_path(params[:post])
-  # end
+  def url
+    post_path(Post.find(params[:post][:id]))
+  end
 end

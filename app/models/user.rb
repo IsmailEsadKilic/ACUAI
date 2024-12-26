@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
   has_many :subscriptions, foreign_key: :subscriber_id
   has_many :subscribed_users, through: :subscriptions, source: :poster
+  has_many :users_that_subscribed, through: :subscriptions, source: :subscriber
 
   has_one_attached :profile_picture
 
