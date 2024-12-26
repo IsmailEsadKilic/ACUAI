@@ -23,7 +23,7 @@
   /* Sol Menü Margin ve Scrollable */
   .row .col-2.scrollable {
     color: grey;
-    background-color: white;
+    background-color: #0e1113;
     border: 1px solid grey;
   }
   
@@ -44,23 +44,23 @@
   
   .input-group-text{
   border-radius: 30px 0 0 30px;
-  background-color: #e5ebee;
+  background-color: #2a3236;
   color: #181c1f;
-  border: var(--bs-border-width) solid #ffffff;
+  border: var(--bs-border-width) solid #2a3236;
   }
   
 
   .form-control {
     border-radius: 0 30px 30px 0;
-    background-color: #e5ebee;
+    background-color: #2a3236;
     color: #5c6c74;
-    border: var(--bs-border-width) solid #ffffff; /* Diğer kenarlar */
-    border-left-color: #e5ebee; /* Sağ kenarın rengi */
+    border: var(--bs-border-width) solid #2a3236; /* Diğer kenarlar */
+    border-left-color: #2a3236; /* Sağ kenarın rengi */
     
   }
 
   .form-control:focus {
-    background-color: #e5ebee;
+    background-color: #2a3236;
     color: #5c6c74;
     box-shadow: none;
     border: none;
@@ -73,7 +73,7 @@
 
 /* Navbar'ın arka plan rengini değiştirme */
 .navbar {
-background-color: #fff !important; /* Buraya istediğiniz rengi girin */
+background-color: #0e1113 !important; /* Buraya istediğiniz rengi girin */
 }
 
 .navbar-brand {

@@ -26,18 +26,15 @@
   <header>
   <nav class="bg-primary navbar navbar-expand-lg" data-bs-theme="dark">
   <div class="container-fluid">
-    <!-- Sol taraf: Logo -->
     <a class="navbar-brand" href="<%= root_path %>">
       <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded">
     </a>
     <a class="navbar-brand" href="<%= root_path %>">ACUAI</a>
 
-    <!-- Navbar içerikleri için toggle -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar içerikleri -->
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
@@ -48,7 +45,6 @@
         </li>
       </ul>
 
-      <!-- Ortada yer alan Search bar -->
       <div class="d-flex me-auto">
         <%= form_with url: posts_path, method: :get, local: true, html: { class: "d-flex" } do %>
           <div class="input-group">
@@ -62,9 +58,8 @@
         <% end %>
       </div>
 
-      <!-- Sağ taraf: Kullanıcı işlemleri -->
       <% if user_signed_in? %>
-        <a class="btn ms-2">
+        <a class="btn ms-2" href="<%= new_post_path %>">
           <i class="bi bi-plus-circle-fill"></i> New Post
         </a>
         <a class="btn ms-2" href="<%= new_uploaded_file_path %>">
