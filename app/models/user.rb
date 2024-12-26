@@ -13,6 +13,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
+  has_many :subscriptions, foreign_key: :subscriber_id
+  has_many :subscribed_users, through: :subscriptions, source: :poster
+
   has_one_attached :profile_picture
 
   has_rich_text :bio
