@@ -56,9 +56,32 @@
     <%= post.likes.count %>  </p>
   <p>
 
-  <% if current_user&.liked_posts&.include?(post) %>
-    <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>
-  <% else %>
-    <%= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2' %>
-  <% end %>
+    <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2',
+                  style: current_user&.liked_posts&.include?(post) ? 'ski' : 'display: none;',
+                  id: "unlike-#{post.id}" %>
+    <%= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2',
+                  style: current_user&.liked_posts&.include?(post) ? 'display: none;' : 'ski',
+                  id: "like-#{post.id}" %>
+  </p>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const likeButton = document.getElementById("like-<%= post.id %>");
+    const unlikeButton = document.getElementById("unlike-<%= post.id %>");
+
+    if (likeButton) {
+      likeButton.addEventListener("click", function() {
+        likeButton.style.display = "none";
+        unlikeButton.style.display = "block";
+      });
+    }
+
+    if (unlikeButton) {
+      unlikeButton.addEventListener("click", function() {
+        unlikeButton.style.display = "none";
+        likeButton.style.display = "block";
+      });
+    }
+  });
+</script>

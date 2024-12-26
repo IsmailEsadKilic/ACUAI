@@ -120,12 +120,10 @@ class PostsController < ApplicationController
 
   def like
     @post.likes.create(user: current_user)
-    redirect_to @post, notice: "Post was successfully liked."
   end
 
   def unlike
     @post.likes.find_by(user: current_user).destroy
-    redirect_to @post, notice: "Post was successfully unliked."
   end
 
   private
