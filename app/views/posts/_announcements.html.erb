@@ -37,7 +37,7 @@
     <% end %>
     </strong>
     <% if announcement.user %>
-      <%= link_to announcement.user.name, user_profile_path(announcement.user) %>
+      <%= link_to announcement.user.name, profile_user_path(announcement.user) %>
     <% else %>
       Anonymous
     <% end %>

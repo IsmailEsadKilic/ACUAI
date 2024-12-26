@@ -1,11 +1,11 @@
 <h1>Topics</h1>
 
 <% if current_user&.admin? %>
-  <a class="btn" style="background: #003D7E" href="<%= new_topic_path %>">
-    <i class="bi bi-plus"></i>
-    Add New Topic
+  <a class="btn add-new-topic" href="<%= new_topic_path %>">
+    <i class="bi bi-plus"></i> Add New Topic
   </a>
 <% end %>
+
 
 <a class="btn mt-2" href="<%= pinned_posts_path %>">
   <i class="bi bi-pin-fill"></i>

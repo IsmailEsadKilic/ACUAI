@@ -95,14 +95,123 @@ background-color: #0e1113 !important; /* Buraya istediğiniz rengi girin */
 }
 
 /* Topics kısmı */
-.btn.mt-2 {
-  background: #003D7E;
-  margin-left: 20px;
-}
 
 h1 {
   text-align: center;
 }
+
+.dontbecomeinviswhenhovered {
+  white-space: normal; /* Metni birden fazla satıra sarmalar */
+  word-wrap: break-word; /* Kelimeyi gerektiğinde böler */
+}
+
+.dontbecomeinviswhenhovered:hover{
+  background-color: #848591;
+}
+
+.dontbecomeinviswhenhovered {
+  white-space: nowrap; /* Tek satırda tutar */
+  overflow: hidden;    /* Taşan kısmı gizler */
+  text-overflow: ellipsis; /* Taşan kısmı '...' ile gösterir */
+}
+
+/* Edit Butonu */
+div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:hover {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+/* Delete Butonu */
+div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:last-child:hover {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+  transition: all 0.3s ease;
+}
+
+/* Alternatif renkler */
+.topics-container .topic:nth-child(odd) {
+  background-color: #2c2f33; /* Koyu gri */
+  color: #ffffff; /* Beyaz yazı */
+}
+
+.topics-container .topic:nth-child(even) {
+  background-color: #525455; /* Daha koyu gri */
+  color: #ffffff; /* Beyaz yazı */
+}
+
+/* Kenarlara hafif yuvarlaklık */
+.topics-container .topic {
+  border-radius: 5px;
+  padding: 5px; /* İç boşluk */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover efektleri için yumuşak geçiş */
+}
+
+/* Hover efekti */
+.topics-container .topic:hover {
+  transform: scale(1.02); /* Hafif büyüme */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Gölgelendirme */
+  background-color: #1e2124; /* Daha koyu bir ton */
+  color: #00d8ff; /* Açık mavi yazı rengi */
+}
+
+/* Genel Buton Tasarımı */
+.btn.mt-2 {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #ffffff; /* Yazı rengi */
+  background: linear-gradient(135deg, #011e7e, #053bec); /* Gradient arka plan (turuncu tonları) */
+  border: none;
+  border-radius: 8px; /* Köşeleri yuvarla */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hover için yumuşak geçiş */
+}
+
+/* Hover Efekti */
+.btn.mt-2:hover {
+  transform: scale(1.05); /* Hafif büyüme efekti */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Daha derin gölge */
+  background: linear-gradient(135deg, #053bec, #011e7e); /* Gradient'in yönünü değiştir */
+}
+
+/* Aktif Durum (Tıklama) */
+.btn.mt-2:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Daha az gölge */
+  background: linear-gradient(135deg, #011864, #033bf4); /* Daha koyu ton */
+}
+
+/* "Add New Topic" Butonuna Özel Tasarım */
+.btn.add-new-topic {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #ffffff; /* Yazı rengi */
+  background: linear-gradient(135deg, #011e7e, #053bec); /* Gradient arka plan (turuncu tonları) */
+  border: none;
+  border-radius: 8px; /* Köşeleri yuvarlak yap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hover için yumuşak geçiş */
+}
+
+/* Hover Efekti */
+.btn.add-new-topic:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e); /* Gradient'in yönünü değiştir */
+  transform: scale(1.05); /* Hafif büyüme efekti */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+}
+
+/* Aktif Durum (Tıklama) */
+.btn.add-new-topic:active {
+  background: linear-gradient(135deg, #011864, #033bf4); /* Daha koyu ton */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Daha az gölge */
+}
+
+
+
+
 
 
 
