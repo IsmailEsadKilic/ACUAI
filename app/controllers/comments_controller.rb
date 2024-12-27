@@ -43,6 +43,7 @@ class CommentsController < ApplicationController
     redirect_to @like_this_comment.post, notice: "You liked a comment."
   end
 
+
   def unlike
 
     @unlike_this_comment = Comment.find(params[:post_id])
