@@ -23,6 +23,9 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
 
+  has_many :comment_likes, dependent: :destroy
+  has_many :liked_comments, through: :comment_likes, source: :comment
+
   def admin?
     admin
   end

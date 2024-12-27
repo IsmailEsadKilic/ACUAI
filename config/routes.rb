@@ -24,7 +24,12 @@ Rails.application.routes.draw do
       get :announcements
     end
 
-    resources :comments
+    resources :comments do
+      member do
+        post :like
+        delete :unlike
+      end
+    end
   end
 
   resources :uploaded_files, only: %i[index new create show destroy]

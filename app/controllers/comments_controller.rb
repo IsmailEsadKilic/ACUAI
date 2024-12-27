@@ -34,6 +34,22 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def like
+    #for some goddamn reason, :post_id is the comment id, and the :id is the post id
+    #raise "liking comment with id#{params[:post_id]} on post with id#{params[:id]}, current_user: #{current_user.inspect}"
+    @like_this_comment = Comment.find(params[:post_id])
+    #raise "comment.inspect: #{@like_this_comment.inspect}"
+    current_user.comment_likes.create(comment: @like_this_comment)
+    redirect_to @like_this_comment.post, notice: "You liked a comment."
+  end
+
+  def unlike
+
+    @unlike_this_comment = Comment.find(params[:post_id])
+    current_user.comment_likes.find_by(comment: @unlike_this_comment).destroy
+    redirect_to @unlike_this_comment.post, notice: "You unliked a comment."
+  end
+
   private
 
   def authorize_user!

@@ -13,6 +13,18 @@
   </div>
 
   <hr>
+  <p>
+    <strong>Likes:</strong> <%= comment.comment_likes.count %>
+  </p>
+  <p>
+    <% if current_user.liked_comments.include?(comment) %>
+      <%= button_to 'Unlike', unlike_post_comment_path(comment), method: :delete, class: 'btn btn-warning' %>
+    <% else %>
+      <%= button_to 'Like', like_post_comment_path(comment), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  </p>
+
+  <hr>
 
   <p>
     <strong>Commented:</strong>

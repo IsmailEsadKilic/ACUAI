@@ -7,6 +7,9 @@ class Comment < ApplicationRecord
   before_destroy :cleanup_notifications
   has_noticed_notifications model_name: 'Notification'
 
+  has_many :comment_likes, dependent: :destroy
+  has_many :liked_by_users, through: :comment_likes, source: :user
+
   private
   def notify_recipient
     CommentNotification.with(comment: self, post: post).deliver_later(post.user)
