@@ -53,7 +53,7 @@
             </span>
             <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
             <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
-            <%= text_field_tag :search, params[:search], class: "form-control", placeholder:  "Search Posts" %>
+            <%= text_field_tag :search, params[:search], class: "form-control", id:"navv", placeholder:  "Search Posts" %>
           </div>
         <% end %>
       </div>

@@ -1,44 +1,56 @@
-<h1>User Profile</h1>
-<div class="navbar-profile-picture ms-2">
-  <% if @user.profile_picture.attached? %>
-    <%= image_tag @user.profile_picture.variant(resize_to_limit: [100, 100]), id: "navbar_profile_picture" %>
-  <% else %>
-    <i class="bi bi-person-circle"></i>
+<h1 class="profile-header">User Profile</h1>
+
+<div class="profile-card">
+  <div class="profile-picture">
+    <% if @user.profile_picture.attached? %>
+      <%= image_tag @user.profile_picture.variant(resize_to_limit: [150, 150]), class: "profile-image" %>
+    <% else %>
+      <i class="bi bi-person-circle default-profile-icon"></i>
+    <% end %>
+  </div>
+
+  <div class="profile-details">
+    <p class="profile-detail">
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
+
+    <p class="profile-detail">
+      <strong>Bio:</strong>
+      <%= @user.bio.presence || "No bio available" %>
+    </p>
+
+    <p class="profile-detail">
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p class="profile-detail">
+      <strong>Joined:</strong>
+      <%= @user.created_at.strftime("%B %d, %Y") %>
+    </p>
+
+    <% if current_user.admin? %>
+      <div class="admin-actions">
+        <%= link_to "Edit", edit_user_path(@user), class: "btn mt-2" %>
+        <%= link_to "Delete", @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger mt-2" %>
+      </div>
+    <% end %>
+
+    <p class="profile-detail">
+      <strong>Posts:</strong>
+      <%= @user.posts.count %>
+    </p>
+  </div>
+</div>
+
+<div class="user-posts">
+  <% @user.posts.each do |post| %>
+    <div class="post-card" onclick="location.href='<%= post_path(post) %>';">
+      <h3 class="post-title"><%= post.title %></h3>
+      <p class="post-excerpt"><%= truncate(post.body.to_plain_text, length: 100) %></p>
+      <p class="post-meta">Published <%= time_ago_in_words(post.created_at) %> ago</p>
+    </div>
   <% end %>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-  <strong>Joined:</strong>
-  <%= @user.created_at.strftime("%B %d, %Y") %>
-</p>
-
-<% if current_user.admin? %>
-  <div class="button-group">
-    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
-    <%= link_to "Delete", @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-
-  </div>
-<% end %>
-<p>
-  <strong>Posts:</strong>
-  <%= @user.posts.count %>
-</p>
-<% @user.posts.each do |post| %>
-  <%= render post %>
-  <p>
-    <%= link_to "Show this post", post %>
-  </p>
-<% end %>

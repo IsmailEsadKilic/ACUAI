@@ -1,55 +1,38 @@
-<h2>Announcements</h2>
+<h2 class="announcements-header">Announcements</h2>
 
-<%# @announcements.each do |announcement| %>
-<!--  <div id="<%#= dom_id announcement %>">-->
-<!--    <hr>-->
-<!--    <p>-->
-<!--      <strong>Title:</strong>-->
-      <%#= link_to announcement.title, announcement %>
-<!--    </p>-->
-<!--    <p>-->
-<!--      <strong>Author:</strong>-->
-      <%# if announcement.user %>
-        <%#= link_to announcement.user.name, user_profile_path(announcement.user) %>
-      <%# else %>
-<!--        Anonymous-->
-      <%# end %>
-<!--    </p>-->
-<!--    <p>-->
-<!--      <strong>Body:</strong>-->
-      <%#= announcement.body %>
-<!--    </p>-->
-<!--  </div>-->
-<%# end %>
+<div class="announcements-container">
+  <% @announcements.each do |announcement| %>
+    <div id="<%= dom_id announcement %>" class="card post-card" onclick="location.href='<%= post_path(announcement) %>';">
+      <div class="post-meta">
+        <% if announcement.pinned %>
+          <i class="bi bi-pin-fill pin-icon"></i>
+        <% end %>
+        <span class="post-topic">
+          <% if announcement.topic %>
+            <strong><%= announcement.topic.name %></strong>
+          <% else %>
+            Uncategorized
+          <% end %>
+        </span>
+        <span class="post-author">
+          <% if announcement.user %>
+            <%= link_to announcement.user.name, profile_user_path(announcement.user) %>
+          <% else %>
+            Anonymous
+          <% end %>
+        </span>
+        <span class="post-time">
+          <%= time_ago_in_words(announcement.created_at) %> ago
+        </span>
+      </div>
 
-<% @announcements.each do |announcement| %>
+      <h3 class="post-title">
+        <%= announcement.title %>
+      </h3>
 
-<div id="<%= dom_id announcement %>" class="card post-card mt-1" style="padding: 10px; cursor: pointer;" onclick="location.href='<%= post_path(announcement) %>';">
-  <p>
-    <% if announcement.pinned %>
-      <i class="bi bi-pin-fill"></i>
-    <% end %>
-    <% if announcement.topic %>
-      <strong>
-      <%= announcement.topic.name %>
-    <% else %>
-      Uncategorized
-    <% end %>
-    </strong>
-    <% if announcement.user %>
-      <%= link_to announcement.user.name, profile_user_path(announcement.user) %>
-    <% else %>
-      Anonymous
-    <% end %>
-    <%= time_ago_in_words(announcement.created_at) %> ago
-  </p>
-
-  <h2>
-    <%= announcement.title %>
-  </h2>
-
-  <p>
-    <%= announcement.body %>
-  </p>
+      <p class="post-body">
+        <%= truncate(announcement.body.to_plain_text, length: 150) %>
+      </p>
+    </div>
+  <% end %>
 </div>
-<% end %>

@@ -1,64 +1,53 @@
-<div id="<%= dom_id post %>" class="card post-card mt-1" style="padding: 10px">
-  <p>
+<div id="<%= dom_id post %>" class="card post-card mt-1" style="padding: 20px; transition: all 0.3s ease;">
+  <div class="post-header">
     <% if post.pinned %>
-        pinned
-        <i class="bi bi-pin-fill"></i>
+      <span class="pin-icon"><i class="bi bi-pin-fill"></i> Pinned</span>
     <% end %>
-    <% if post.topic %>
+    <p class="post-topic">
       <strong>Topic:</strong>
-      <%= post.topic.name %>
-    <% else %>
-      <strong>Topic:</strong>
-      Uncategorized
-    <% end %>
-  </p>
+      <%= post.topic ? post.topic.name : 'Uncategorized' %>
+    </p>
+  </div>
 
-  <h2>
+  <h2 class="post-title">
     <%= post.title %>
   </h2>
 
-  <p>
-    <strong>Author:</strong>
-    <% if post.user %>
-      <%= link_to post.user.name, profile_user_path(post.user) %>
-    <% else %>
-      Anonymous
-    <% end %>
-  </p>
-  <p>
+  <p class="post-meta">
+  <strong>Author:</strong> 
+  <%= post.user ? link_to(post.user.name, profile_user_path(post.user), class: "author-name") : '<span class="author-name">Anonymous</span>' %> 
+  <span class="post-time">
+    <strong>Created:</strong> <%= time_ago_in_words(post.created_at) %> ago
+  </span>
+</p>
+
+
+  <p class="post-body">
     <%= post.body %>
   </p>
 
   <% if post.uploads.attached? %>
-    <strong>Attachments:</strong>
-    <ul>
-      <% post.uploads.each do |upload| %>
-        <li>
-          <%= link_to upload.filename, rails_blob_path(upload, disposition: "attachment") %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="post-attachments">
+      <strong>Attachments:</strong>
+      <ul>
+        <% post.uploads.each do |upload| %>
+          <li><%= link_to upload.filename, rails_blob_path(upload, disposition: "attachment") %></li>
+        <% end %>
+      </ul>
+    </div>
   <% else %>
     <p>No attachments</p>
   <% end %>
 
-  <p>
-  <strong>Created:</strong>
-  <%= time_ago_in_words(post.created_at) %> ago
-  </p>
-  <p>
-    <strong>Updated:</strong>
-    <%= time_ago_in_words(post.updated_at) %> ago
-  </p>
+  <div class="post-likes">
+    <strong>Likes:</strong> <%= post.likes.count %>
+  </div>
 
-  <p>
-    <strong>Likes:</strong>
-    <%= post.likes.count %>  </p>
-  <p>
-
-  <% if current_user&.liked_posts&.include?(post) %>
-    <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>
-  <% else %>
-    <%= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2' %>
-  <% end %>
+  <div class="post-actions">
+    <% if current_user&.liked_posts&.include?(post) %>
+      <%= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>
+    <% else %>
+      <%= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2' %>
+    <% end %>
+  </div>
 </div>

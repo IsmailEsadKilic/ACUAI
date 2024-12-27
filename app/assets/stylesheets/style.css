@@ -20,12 +20,7 @@
     padding-left: 0;
   }
   
-  /* Sol Menü Margin ve Scrollable */
-  .row .col-2.scrollable {
-    color: grey;
-    background-color: #0e1113;
-    border: 1px solid grey;
-  }
+  
   
   /* Sağ ve Sol Menü Scrollable Alt Padding */
   .scrollable {
@@ -50,7 +45,7 @@
   }
   
 
-  .form-control {
+  #navv {
     border-radius: 0 30px 30px 0;
     background-color: #2a3236;
     color: #5c6c74;
@@ -59,7 +54,7 @@
     
   }
 
-  .form-control:focus {
+  #navv:focus {
     background-color: #2a3236;
     color: #5c6c74;
     box-shadow: none;
@@ -67,13 +62,13 @@
   }
 
   /* Search Posts placeholder metninin rengini değiştirme */
-.form-control::placeholder {
+#navv::placeholder {
     color: #5c6c74; /* Burada istediğiniz rengi belirleyebilirsiniz */
 }
 
 /* Navbar'ın arka plan rengini değiştirme */
 .navbar {
-background-color: #0e1113 !important; /* Buraya istediğiniz rengi girin */
+background-color: #212529 !important; /* Buraya istediğiniz rengi girin */
 }
 
 .navbar-brand {
@@ -209,13 +204,537 @@ div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Daha az gölge */
 }
 
+/* Genel Login Stilleri */
+.login-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #0e1113; /* Koyu arka plan */
+  border-radius: 8px;
+  padding: 2em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-header {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5em;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-label {
+  color: #5c6c74;
+  font-size: 0.9rem;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8em;
+  border-radius: 30px;
+  background-color: #2a3236;
+  border: 1px solid #2a3236;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #0865c7;
+  outline: none;
+  background-color: #1e2124;
+  box-shadow: 0 0 8px rgba(8, 101, 199, 0.6);
+}
+
+.form-checkbox {
+  margin-right: 0.5em;
+}
+
+.form-label-checkbox {
+  color: #5c6c74;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  color: #ffffff;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+  box-shadow: 0 4px 10px rgba(0, 61, 126, 0.6);
+  transform: scale(1.05);
+}
+
+.btn-login:active {
+  background: linear-gradient(135deg, #011864, #033bf4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Link Alanı */
+.form-links {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.form-links a {
+  color: #0865c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Announcement Başlık Stili */
+.announcements-header {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+
+/* Duyurular Konteyneri */
+.announcements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+/* Duyuru Kartı */
+.post-card {
+  background-color: #0e1113;
+  border: 1px solid #2a3236;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 1.5em;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background-color: #1e2124;
+}
+
+/* Meta Bilgiler */
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #5c6c74;
+  margin-bottom: 1em;
+}
+
+.post-meta .post-topic {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.post-meta .post-author a {
+  color: #0865c7;
+  text-decoration: none;
+}
+
+.post-meta .post-author a:hover {
+  text-decoration: underline;
+}
+
+.post-meta .post-time {
+  font-style: italic;
+  color: #848591;
+}
+
+/* Pin Simgesi */
+.pin-icon {
+  color: #0865c7;
+  margin-right: 0.5em;
+  font-size: 1.2rem;
+}
+
+/* Başlık Stili */
+.post-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 0.8em;
+}
+
+/* Gövde Metni Stili */
+.post-body {
+  color: #b0b3b8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*User Profil Başlığı */
+.profile-header {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Profil Kartı */
+.profile-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #2c2f33;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+/* Profil Resmi */
+.profile-picture {
+  margin-right: 20px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  border: 3px solid #0865c7;
+  width: 150px;
+  height: 150px;
+}
+
+.default-profile-icon {
+  font-size: 150px;
+  color: #0865c7;
+}
+
+/* Profil Detayları */
+.profile-details {
+  flex: 1;
+}
+
+.profile-detail {
+  margin-bottom: 10px;
+}
+
+/* Admin İşlemleri */
+.admin-actions .btn {
+  margin-right: 10px;
+}
+
+/* Kullanıcı Gönderileri */
+.user-posts {
+  margin-top: 30px;
+}
+
+.post-card {
+  background-color: #3c3f43;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.post-title {
+  color: #00d8ff;
+  margin-bottom: 10px;
+}
+
+.post-excerpt {
+  color: #b0b3b8;
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  color: #8c9ea7;
+}
+
+/* Post Kartı */
+.card.post-card {
+  background-color: #0e1113;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+}
+
+.card.post-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background-color: #1e2124;
+}
+
+/* Başlık */
+.post-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Meta Bilgiler */
+.post-meta {
+  font-size: 0.9rem;
+  color: #5c6c74;
+  margin-bottom: 1em;
+}
+
+.post-meta .post-topic {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.post-meta .post-author a {
+  color: #0865c7;
+  text-decoration: none;
+}
+
+.post-meta .post-author a:hover {
+  text-decoration: underline;
+}
+
+.post-meta .post-time {
+  font-style: italic;
+  color: #848591;
+}
+
+/* Pin İkonu */
+.pin-icon {
+  color: #0865c7;
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+/* Post Gövde */
+.post-body {
+  color: #b0b3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* Attachments */
+.post-attachments ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-attachments li {
+  color: #5c6c74;
+  font-size: 0.9rem;
+}
+
+/* Beğeniler */
+.post-likes {
+  margin-top: 1em;
+  font-size: 1rem;
+  color: #b0b3b8;
+}
+
+/* Aksiyon Butonları */
+.post-actions .btn {
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.post-actions .btn:hover {
+  background-color: #00d8ff;
+  transform: scale(1.05);
+}
+
+.post-actions .btn:active {
+  background-color: #033bf4;
+  transform: scale(1);
+}
+
+/* Genel Buton Renkleri */
+.btn.btn-primary {
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-primary:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+}
+
+.btn.btn-warning {
+  background: linear-gradient(135deg, #f5a623, #f77d19);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-warning:hover {
+  background: linear-gradient(135deg, #f77d19, #f5a623);
+}
+
+/* Author kısmı */
+.author-name {
+  color: #0865c7; /* Yazı rengi */
+  text-decoration: none; /* Link altını kaldır */
+}
+
+/* Author kısmının üzerine gelindiğinde efekt */
+.author-name:hover {
+  color: #0865c7; /* Hover rengi */
+  text-decoration: underline; /* Alt çizgi */
+}
+
+/* Button group styling */
+.btn-group {
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Button styling */
+.btn-sort {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+}
+
+/* Hover effect */
+.btn-sort:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Active button state */
+.btn-sort.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Focus state for accessibility */
+.btn-sort:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Container for editing post */
+.edit-post-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+/* Title styling */
+.edit-post-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form styling */
+form {
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input and textarea styling */
+input, textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button and links styling */
+.btn-link {
+  color: #007bff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+/* Navigation links */
+.post-navigation {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.post-navigation a {
+  color: #007bff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-navigation a:hover {
+  color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-post-container {
+    padding: 20px;
+  }
+
+  .edit-post-title {
+    font-size: 2rem;
+  }
+
+  .post-navigation a {
+    font-size: 1rem;
+  }
+}
 
 
 
 
-
-
-
-  
-  
-  
