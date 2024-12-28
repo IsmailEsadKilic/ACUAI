@@ -1,16 +1,20 @@
-<p>
-  <strong>Name:</strong>
-  <%= @uploaded_file.name %>
-</p>
+<div class="uploaded-file-details-container">
+  <h1 class="uploaded-file-details-title">File Details</h1>
 
-<% if @uploaded_file.file.attached? %>
-  <p>
-    <strong>File:</strong>
-    <%= link_to @uploaded_file.file.filename, rails_blob_path(@uploaded_file.file, disposition: "attachment") %>
-  </p>
-<% end %>
+  <div class="uploaded-file-detail">
+    <strong>Name:</strong>
+    <span class="uploaded-file-name"><%= @uploaded_file.name %></span>
+  </div>
 
-<%= link_to 'Back', uploaded_files_path %>
-<%= link_to 'Delete', @uploaded_file, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger mt-2' %>
+  <% if @uploaded_file.file.attached? %>
+    <div class="uploaded-file-detail">
+      <strong>File:</strong>
+      <%= link_to @uploaded_file.file.filename, rails_blob_path(@uploaded_file.file, disposition: "attachment"), class: "uploaded-file-link" %>
+    </div>
+  <% end %>
 
-
+  <div class="uploaded-file-actions">
+    <%= link_to 'Back', uploaded_files_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Delete', @uploaded_file, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div>
+</div>

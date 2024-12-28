@@ -482,7 +482,6 @@ div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:
 }
 
 .card.post-card:hover {
-  transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   background-color: #1e2124;
 }
@@ -610,7 +609,6 @@ div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:
 
 /* Button group styling */
 .btn-group {
-  gap: 10px;
   justify-content: center;
 }
 
@@ -675,7 +673,7 @@ form {
 
 /* Input and textarea styling */
 input, textarea {
-  padding: 14px;
+  padding: 7px;
   border-radius: 8px;
   border: 1px solid #333;
   background-color: #333;
@@ -734,6 +732,230 @@ input:focus, textarea:focus {
     font-size: 1rem;
   }
 }
+
+/* Liste Elemanları */
+.uploaded-file-item {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Bağlantı Stili */
+.uploaded-file-link {
+  display: block; /* Bağlantıyı bloğun tamamına yay */
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  width: 100%; /* Blok genişliğini tam yap */
+  height: 100%; /* Blok yüksekliğini tam yap */
+}
+
+/* Hover Efektleri */
+.uploaded-file-item:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.uploaded-file-link:hover {
+  color: #00bfff;
+}
+
+/* Container */
+.uploaded-file-details-container {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.uploaded-file-details-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* File Details */
+.uploaded-file-detail {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.uploaded-file-name {
+  color: #ccc;
+  font-weight: normal;
+}
+
+/* Link */
+.uploaded-file-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.uploaded-file-link:hover {
+  color: #00bfff;
+}
+
+/* Actions (Buttons) */
+.uploaded-file-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.uploaded-file-actions .btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.uploaded-file-actions .btn-secondary {
+  background-color: #444;
+  color: #fff;
+  border: none;
+}
+
+.uploaded-file-actions .btn-secondary:hover {
+  background-color: #555;
+}
+
+.uploaded-file-actions .btn-danger {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+}
+
+.uploaded-file-actions .btn-danger:hover {
+  background-color: #ff3333;
+  transform: scale(1.05);
+}
+
+/* Link için stil */
+.back-to-posts-link {
+  color: #ffffff; /* Beyaz yazı */
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-posts-link:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+}
+
+#post_topic_id {
+  margin-bottom: 10px;
+}
+
+/* Dropdown Container */
+.user-dropdown {
+  position: relative;
+}
+
+.user-dropdown-btn {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-dropdown-btn:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.user-dropdown-btn i {
+  margin-right: 5px;
+}
+
+/* Dropdown Menu */
+.user-dropdown-menu {
+  background-color: #222;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 8px;
+}
+
+.user-dropdown-menu .user-dropdown-item {
+  color: #ddd;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-dropdown-menu .user-dropdown-item:hover {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Role Specific Styling */
+.user-dropdown-btn.admin {
+  border: 2px solid yellow;
+}
+
+/* Sign-up actions için özel stil */
+.sign-up-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+/* Authentication Links Container */
+.auth-links-container {
+  margin: 20px auto;
+}
+
+/* Links Styling */
+.auth-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+/* Resend confirmation actions için özel stil */
+.resend-confirmation-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+.reset-password-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+}
+
+.topics-container * {
+  box-sizing: border-box;
+}
+
+.actions.update-profile {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+
+
+
 
 
 

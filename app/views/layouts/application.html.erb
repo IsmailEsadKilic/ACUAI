@@ -65,20 +65,21 @@
         <a class="btn ms-2" href="<%= new_uploaded_file_path %>">
           <i class="bi bi-file-arrow-up-fill"></i> Upload File
         </a>
-        <div class="dropdown ms-2">
-          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            <% if current_user.admin? %>
-              <i class="bi bi-shield-fill" style="color: yellow"></i> Admin: <%= current_user.name %>
-            <% else %>
-              <i class="bi bi-person-circle"></i> <%= current_user.name %>
-            <% end %>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
-            <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
-            <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-            <li><%= link_to "See Profile", profile_user_path(current_user), class: "dropdown-item" %></li>
-          </ul>
-        </div>
+        <div class="user-dropdown ms-2">
+  <a class="btn dropdown-toggle user-dropdown-btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <% if current_user.admin? %>
+      <i class="bi bi-shield-fill" style="color: yellow"></i> Admin: <%= current_user.name %>
+    <% else %>
+      <i class="bi bi-person-circle"></i> <%= current_user.name %>
+    <% end %>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-lg-end user-dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item user-dropdown-item" %></li>
+    <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item user-dropdown-item" %></li>
+    <li><%= link_to "See Profile", profile_user_path(current_user), class: "dropdown-item user-dropdown-item" %></li>
+  </ul>
+</div>
+
       <% else %>
         <a class="btn ms-2" href="<%= new_user_session_path %>">Log in</a>
         <a class="btn ms-2" href="<%= new_user_registration_path %>">Sign up</a>
