@@ -11,12 +11,12 @@
   <% end %>
 </h1>
 
-sort by:
 <div class="btn-group">
-  <%= link_to "Pinned", posts_path(request.query_parameters.merge(order: 'pinned')), class: "btn btn-outline-primary #{'active' if params[:order] == 'pinned'}" %>
-  <%= link_to "New", posts_path(request.query_parameters.merge(order: 'new')), class: "btn btn-outline-primary #{'active' if params[:order] == 'new' || !params[:order]}" %>
-  <%= link_to "Old", posts_path(request.query_parameters.merge(order: 'old')), class: "btn btn-outline-primary #{'active' if params[:order] == 'old'}" %>
+  <%= link_to "Pinned", posts_path(request.query_parameters.merge(order: 'pinned')), class: "btn btn-sort #{'active' if params[:order] == 'pinned'}" %>
+  <%= link_to "New", posts_path(request.query_parameters.merge(order: 'new')), class: "btn btn-sort #{'active' if params[:order] == 'new' || !params[:order]}" %>
+  <%= link_to "Old", posts_path(request.query_parameters.merge(order: 'old')), class: "btn btn-sort #{'active' if params[:order] == 'old'}" %>
 </div>
+
 
 <div class="mt-2" id="posts">
   <% @posts.each do |post| %>

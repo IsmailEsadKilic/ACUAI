@@ -10,6 +10,39 @@
       <% Topic.all.each do |topic| %>
         <%= link_to topic.name, topic_path(topic), class: "list-group-item list-group-item-action" %>
       <% end %>
+<h1>Topics</h1>
+
+<% if current_user&.admin? %>
+  <a class="btn add-new-topic" href="<%= new_topic_path %>">
+    <i class="bi bi-plus"></i> Add New Topic
+  </a>
+<% end %>
+
+
+<a class="btn mt-2" href="<%= pinned_posts_path %>">
+  <i class="bi bi-pin-fill"></i>
+  All Pinned Posts
+</a>
+
+<div class="topics-container">
+<% @topics.each do |topic| %>
+
+  <% if current_user&.admin? %>
+
+    <div class="btn-group mt-2 topic">
+      <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light dontbecomeinviswhenhovered ">
+        <strong>
+          <%= topic.name %>
+        </strong> <br>
+        <%= topic.description %>
+      </a>
+      <div class="btn-group-vertical">
+        <a href="<%= edit_topic_path(topic) %>" class="btn btn-sm btn-outline-light dontbecomeinviswhenhovered" style="border-top-left-radius: 0">
+          Edit
+        </a>
+        <%= link_to "Delete", topic, data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-sm btn-outline-light dontbecomeinviswhenhovered", style: "border-bottom-left-radius: 0" %>
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -21,41 +21,39 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body class="not-scrollable" style="zoom: 100%">
-<main class="container-fluid" style="padding-right: 0; padding-left: 0">
+<body class="not-scrollable">
+<main class="container-fluid">
   <header>
-    <nav class="bg-primary navbar navbar-expand-lg" data-bs-theme="dark" style="padding-left: 0.5em; background-color: #0C0C0D">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="<%= root_path %>">
-          <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded" style="width: 40px; height: 40px;">
-        </a>
-        <a class="navbar-brand" href="<%= root_path %>">
-          ACUAI
-        </a>
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= uploaded_files_path %>">
-              Files
-            </a>
-          </li>
-          <li class="nav-item">
-            <!--          should go to root_path/help-->
-            <a class="nav-link" href="<%= help_path %>">
-              How to Use
-            </a>
-          </li>
-        </ul>
+  <nav class="bg-primary navbar navbar-expand-lg" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<%= root_path %>">
+      <img src="<%= asset_path('ACUAI.png') %>" alt="ACUAI" class="rounded">
+    </a>
+    <a class="navbar-brand" href="<%= root_path %>">ACUAI</a>
 
-        <%= form_with url: posts_path,
-                      method: :get, local: true, html: { class: "d-flex ms-2" } do %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= uploaded_files_path %>">Files</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= help_path %>">How to Use</a>
+        </li>
+      </ul>
+
+      <div class="d-flex me-auto">
+        <%= form_with url: posts_path, method: :get, local: true, html: { class: "d-flex" } do %>
           <div class="input-group">
-          <span class="input-group-text">
-            <i class="bi bi-search"></i>
-          </span>
+            <span class="input-group-text">
+              <i class="bi bi-search"></i>
+            </span>
             <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
             <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
-
-            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Posts" %>
+            <%= text_field_tag :search, params[:search], class: "form-control", id:"navv", placeholder:  "Search Posts" %>
             <%= submit_tag "Search", class: "btn btn-dark" %>
           </div>
         <% end %>
@@ -103,32 +101,51 @@
               </li>
             </ul>
           </div>
-        <% else %>
-          <% if controller_name != "sessions" %>
-            <a class="btn ms-2" href="<%= new_user_session_path %>">
-              Log in
-            </a>
-          <% end %>
-          <% if controller_name != "registrations" %>
-            <a class="btn ms-2" href="<%= new_user_registration_path %>">
-              Sign up
-            </a>
-          <% end %>
         <% end %>
       </div>
-    </nav>
+
+      <% if user_signed_in? %>
+        <a class="btn ms-2" href="<%= new_post_path %>">
+          <i class="bi bi-plus-circle-fill"></i> New Post
+        </a>
+        <a class="btn ms-2" href="<%= new_uploaded_file_path %>">
+          <i class="bi bi-file-arrow-up-fill"></i> Upload File
+        </a>
+        <div class="user-dropdown ms-2">
+  <a class="btn dropdown-toggle user-dropdown-btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <% if current_user.admin? %>
+      <i class="bi bi-shield-fill" style="color: yellow"></i> Admin: <%= current_user.name %>
+    <% else %>
+      <i class="bi bi-person-circle"></i> <%= current_user.name %>
+    <% end %>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-lg-end user-dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item user-dropdown-item" %></li>
+    <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item user-dropdown-item" %></li>
+    <li><%= link_to "See Profile", profile_user_path(current_user), class: "dropdown-item user-dropdown-item" %></li>
+  </ul>
+</div>
+
+      <% else %>
+        <a class="btn ms-2" href="<%= new_user_session_path %>">Log in</a>
+        <a class="btn ms-2" href="<%= new_user_registration_path %>">Sign up</a>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
   </header>
   <div class="row justify-content-center not-scrollable">
-    <div class="col-2 scrollable" style="margin-left: 0.5em" style="padding-bottom: 5em;">
+    <div class="col-2 scrollable">
       <%= render "shared/topics" %>
     </div>
-    <div class="container col outlined" style="">
-      <div class=" scrollable" style="padding-bottom: 5em">
+    <div class="container col outlined">
+      <div class=" scrollable">
         <%= render "layouts/alerts" %>
         <%= yield %>
       </div>
     </div>
-    <div class="col-3 scrollable " style="padding-bottom: 5em">
+    <div class="col-3 scrollable ">
       <%= render 'posts/announcements' %>
     </div>
   </div>

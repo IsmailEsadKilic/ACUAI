@@ -1,5 +1,7 @@
 <% content_for :title, "New Topic" %>
 
-<h1>New Topic</h1>
+<h1 class="text-center text-white mb-4">New Topic</h1>
 
-<%= render "form", topic: @topic %>
+<div class="card bg-dark text-white p-4">
+  <%= render "form", topic: @topic %>
+</div>
