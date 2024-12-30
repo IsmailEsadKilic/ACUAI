@@ -39,6 +39,8 @@ class PostsController < ApplicationController
     end
     @comment = Comment.new
     @comments = @post.comments.order(created_at: :desc)
+
+    mark_notifications_as_read
   end
 
   # GET /posts/new
@@ -118,12 +120,10 @@ class PostsController < ApplicationController
 
   def like
     @post.likes.create(user: current_user)
-    redirect_to @post, notice: "Post was successfully liked."
   end
 
   def unlike
     @post.likes.find_by(user: current_user).destroy
-    redirect_to @post, notice: "Post was successfully unliked."
   end
 
   private
@@ -131,6 +131,13 @@ class PostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def mark_notifications_as_read
+    if current_user
+      notifications_to_mark_as_read = @post.notifications_as_post.where(recipient: current_user)
+      notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
+    end
   end
 
   # Check if the current user is the owner of the post

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_22_082701) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_27_132703) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_082701) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comment_likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_likes_on_comment_id"
+    t.index ["user_id"], name: "index_comment_likes_on_user_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "user_id", null: false
@@ -68,6 +77,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_082701) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.integer "recipient_id", null: false
+    t.string "type", null: false
+    t.json "params"
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -81,6 +102,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_082701) do
     t.index ["title"], name: "index_posts_on_title"
     t.index ["topic_id"], name: "index_posts_on_topic_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "poster_id"
+    t.integer "subscriber_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poster_id", "subscriber_id"], name: "index_subscriptions_on_poster_id_and_subscriber_id", unique: true
+    t.index ["poster_id"], name: "index_subscriptions_on_poster_id"
+    t.index ["subscriber_id"], name: "index_subscriptions_on_subscriber_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -117,6 +148,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_22_082701) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comment_likes", "comments"
+  add_foreign_key "comment_likes", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"

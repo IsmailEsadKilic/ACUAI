@@ -54,6 +54,52 @@
             <%= hidden_field_tag :topic_id, params[:topic_id] if params[:topic_id].present? %>
             <%= hidden_field_tag :order, params[:order] if params[:order].present? %>
             <%= text_field_tag :search, params[:search], class: "form-control", id:"navv", placeholder:  "Search Posts" %>
+            <%= submit_tag "Search", class: "btn btn-dark" %>
+          </div>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <a class="btn ms-2" style="background: #003D7E" href="<%= new_post_path %>">
+            <i class="bi bi-plus-circle-fill"></i>
+            New Post
+          </a>
+          <a class="btn ms-2" style="background: #003D7E" href="<%= new_uploaded_file_path %>">
+            <i class="bi bi-file-arrow-up-fill"></i>
+            Upload File
+          </a>
+          <div class="ms-2">
+
+          <%= render "layouts/notifications" %>
+          </div>
+
+          <div class="navbar-profile-picture ms-2">
+              <% if current_user.profile_picture.attached? %>
+                <%= image_tag current_user.profile_picture.variant(resize_to_limit: [50, 50]), id: "navbar_profile_picture" %>
+              <% else %>
+              <i class="bi bi-person-circle"></i>
+              <% end %>
+            </div>
+          <div class="dropdown ms-2">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <% if current_user.admin? %>
+                <i class="bi bi-shield-fill" style="color: yellow"></i>
+                Admin: <%= current_user.name %>
+              <% else %>
+                <i class="bi bi-person-circle"></i>
+                <%= current_user.name %>
+              <% end %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
+              <li>
+                <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </li>
+              <li>
+                <%= link_to "See Profile", profile_user_path(current_user), class: "dropdown-item" %>
+              </li>
+            </ul>
           </div>
         <% end %>
       </div>

@@ -24,7 +24,12 @@ Rails.application.routes.draw do
       get :announcements
     end
 
-    resources :comments
+    resources :comments do
+      member do
+        post :like
+        delete :unlike
+      end
+    end
   end
 
   resources :uploaded_files, only: %i[index new create show destroy]
@@ -33,6 +38,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[ edit update destroy] do
     member do
       get 'profile'
+      post :subscribe
+      delete :unsubscribe
     end
   end
 

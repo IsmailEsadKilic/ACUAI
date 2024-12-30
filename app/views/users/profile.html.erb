@@ -53,4 +53,40 @@
     </div>
   <% end %>
 </div>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
 
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Joined:</strong>
+  <%= @user.created_at.strftime("%B %d, %Y") %>
+</p>
+
+<div>
+  <% if current_user.subscribed_users.include?(@user) %>
+    <%= button_to "Unsubscribe", unsubscribe_user_path(@user), method: :delete, class: "btn btn-warning" %>
+  <% else %>
+    <%= button_to "Subscribe", subscribe_user_path(@user), method: :post, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<%# if current_user&.liked_posts&.include?(post) %>
+  <%#= button_to 'Unlike', unlike_post_path(post), method: :delete, class: 'btn btn-warning mt-2' %>
+<%# else %>
+  <%#= button_to 'Like', like_post_path(post), method: :post, class: 'btn btn-primary mt-2' %>
+<%# end %>
+
+<% if current_user.admin? %>
+  <div class="button-group">
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to "Delete", @user, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
