@@ -16,10 +16,15 @@
 
 </div>
 
-<div class="container">
-  <h2>Comments</h2>
+<div class="comments-section">
+  <h2 class="comments-title">Comments</h2>
+  
   <%= render 'comments/form', post: @post %>
-  <% @comments.each do |comment| %>
-    <%= render comment, post: @post %>
-  <% end %>
+
+  <div class="comments-list">
+    <% @comments.each do |comment| %>
+      <%= render comment, post: @post %>
+    <% end %>
+  </div>
 </div>
+

@@ -1,0 +1,962 @@
+/* Navbar Arka Plan Rengi */
+.bg-primary.navbar {
+    background-color: #0C0C0D;
+    padding-left: 0.5em;
+  }
+  
+  /* Navbar Logo Boyutlandırma */
+  .navbar-brand img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Body Zoom */
+  body.not-scrollable {
+    zoom: 100%;
+  }
+
+  main.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  
+  
+  /* Sağ ve Sol Menü Scrollable Alt Padding */
+  .scrollable {
+    padding-bottom: 5em;
+  }
+  
+  /* Yeni Post ve Dosya Yükle Butonları */
+  .btn.ms-2 {
+    background: #003D7E;
+    border-radius: 999px;
+  }
+
+  .d-flex {
+    width: 500px;
+  }
+  
+  .input-group-text{
+  border-radius: 30px 0 0 30px;
+  background-color: #2a3236;
+  color: #181c1f;
+  border: var(--bs-border-width) solid #2a3236;
+  }
+  
+
+  #navv {
+    border-radius: 0 30px 30px 0;
+    background-color: #2a3236;
+    color: #5c6c74;
+    border: var(--bs-border-width) solid #2a3236; /* Diğer kenarlar */
+    border-left-color: #2a3236; /* Sağ kenarın rengi */
+    
+  }
+
+  #navv:focus {
+    background-color: #2a3236;
+    color: #5c6c74;
+    box-shadow: none;
+    border: none;
+  }
+
+  /* Search Posts placeholder metninin rengini değiştirme */
+#navv::placeholder {
+    color: #5c6c74; /* Burada istediğiniz rengi belirleyebilirsiniz */
+}
+
+/* Navbar'ın arka plan rengini değiştirme */
+.navbar {
+background-color: #212529 !important; /* Buraya istediğiniz rengi girin */
+}
+
+.navbar-brand {
+    color: #8c9ea7;
+}
+
+.navbar-brand:hover {
+  color: #0865c7;
+}
+
+.nav-link {
+    color: #5c6c74;
+
+}
+
+.nav-link:hover {
+  color: #003d7e;
+
+}
+
+/* Topics kısmı */
+
+h1 {
+  text-align: center;
+}
+
+.dontbecomeinviswhenhovered {
+  white-space: normal; /* Metni birden fazla satıra sarmalar */
+  word-wrap: break-word; /* Kelimeyi gerektiğinde böler */
+}
+
+.dontbecomeinviswhenhovered:hover{
+  background-color: #848591;
+}
+
+.dontbecomeinviswhenhovered {
+  white-space: nowrap; /* Tek satırda tutar */
+  overflow: hidden;    /* Taşan kısmı gizler */
+  text-overflow: ellipsis; /* Taşan kısmı '...' ile gösterir */
+}
+
+/* Edit Butonu */
+div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:hover {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+/* Delete Butonu */
+div.btn-group-vertical .btn.btn-sm.btn-outline-light.dontbecomeinviswhenhovered:last-child:hover {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+  transition: all 0.3s ease;
+}
+
+/* Alternatif renkler */
+.topics-container .topic:nth-child(odd) {
+  background-color: #2c2f33; /* Koyu gri */
+  color: #ffffff; /* Beyaz yazı */
+}
+
+.topics-container .topic:nth-child(even) {
+  background-color: #525455; /* Daha koyu gri */
+  color: #ffffff; /* Beyaz yazı */
+}
+
+/* Kenarlara hafif yuvarlaklık */
+.topics-container .topic {
+  border-radius: 5px;
+  padding: 5px; /* İç boşluk */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover efektleri için yumuşak geçiş */
+}
+
+/* Hover efekti */
+.topics-container .topic:hover {
+  transform: scale(1.02); /* Hafif büyüme */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Gölgelendirme */
+  background-color: #1e2124; /* Daha koyu bir ton */
+  color: #00d8ff; /* Açık mavi yazı rengi */
+}
+
+/* Genel Buton Tasarımı */
+.btn.mt-2 {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #ffffff; /* Yazı rengi */
+  background: linear-gradient(135deg, #011e7e, #053bec); /* Gradient arka plan (turuncu tonları) */
+  border: none;
+  border-radius: 8px; /* Köşeleri yuvarla */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hover için yumuşak geçiş */
+}
+
+/* Hover Efekti */
+.btn.mt-2:hover {
+  transform: scale(1.05); /* Hafif büyüme efekti */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Daha derin gölge */
+  background: linear-gradient(135deg, #053bec, #011e7e); /* Gradient'in yönünü değiştir */
+}
+
+/* Aktif Durum (Tıklama) */
+.btn.mt-2:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Daha az gölge */
+  background: linear-gradient(135deg, #011864, #033bf4); /* Daha koyu ton */
+}
+
+/* "Add New Topic" Butonuna Özel Tasarım */
+.btn.add-new-topic {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #ffffff; /* Yazı rengi */
+  background: linear-gradient(135deg, #011e7e, #053bec); /* Gradient arka plan (turuncu tonları) */
+  border: none;
+  border-radius: 8px; /* Köşeleri yuvarlak yap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hover için yumuşak geçiş */
+}
+
+/* Hover Efekti */
+.btn.add-new-topic:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e); /* Gradient'in yönünü değiştir */
+  transform: scale(1.05); /* Hafif büyüme efekti */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+}
+
+/* Aktif Durum (Tıklama) */
+.btn.add-new-topic:active {
+  background: linear-gradient(135deg, #011864, #033bf4); /* Daha koyu ton */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Daha az gölge */
+}
+
+/* Genel Login Stilleri */
+.login-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #0e1113; /* Koyu arka plan */
+  border-radius: 8px;
+  padding: 2em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-header {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5em;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-label {
+  color: #5c6c74;
+  font-size: 0.9rem;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8em;
+  border-radius: 30px;
+  background-color: #2a3236;
+  border: 1px solid #2a3236;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #0865c7;
+  outline: none;
+  background-color: #1e2124;
+  box-shadow: 0 0 8px rgba(8, 101, 199, 0.6);
+}
+
+.form-checkbox {
+  margin-right: 0.5em;
+}
+
+.form-label-checkbox {
+  color: #5c6c74;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  color: #ffffff;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+  box-shadow: 0 4px 10px rgba(0, 61, 126, 0.6);
+  transform: scale(1.05);
+}
+
+.btn-login:active {
+  background: linear-gradient(135deg, #011864, #033bf4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Link Alanı */
+.form-links {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.form-links a {
+  color: #0865c7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+/* Announcement Başlık Stili */
+.announcements-header {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+
+/* Duyurular Konteyneri */
+.announcements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+/* Duyuru Kartı */
+.post-card {
+  background-color: #0e1113;
+  border: 1px solid #2a3236;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 1.5em;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background-color: #1e2124;
+}
+
+/* Meta Bilgiler */
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #5c6c74;
+  margin-bottom: 1em;
+}
+
+.post-meta .post-topic {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.post-meta .post-author a {
+  color: #0865c7;
+  text-decoration: none;
+}
+
+.post-meta .post-author a:hover {
+  text-decoration: underline;
+}
+
+.post-meta .post-time {
+  font-style: italic;
+  color: #848591;
+}
+
+/* Pin Simgesi */
+.pin-icon {
+  color: #0865c7;
+  margin-right: 0.5em;
+  font-size: 1.2rem;
+}
+
+/* Başlık Stili */
+.post-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 0.8em;
+}
+
+/* Gövde Metni Stili */
+.post-body {
+  color: #b0b3b8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*User Profil Başlığı */
+.profile-header {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Profil Kartı */
+.profile-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: #2c2f33;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+/* Profil Resmi */
+.profile-picture {
+  margin-right: 20px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  border: 3px solid #0865c7;
+  width: 150px;
+  height: 150px;
+}
+
+.default-profile-icon {
+  font-size: 150px;
+  color: #0865c7;
+}
+
+/* Profil Detayları */
+.profile-details {
+  flex: 1;
+}
+
+.profile-detail {
+  margin-bottom: 10px;
+}
+
+/* Admin İşlemleri */
+.admin-actions .btn {
+  margin-right: 10px;
+}
+
+/* Kullanıcı Gönderileri */
+.user-posts {
+  margin-top: 30px;
+}
+
+.post-card {
+  background-color: #3c3f43;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.post-title {
+  color: #00d8ff;
+  margin-bottom: 10px;
+}
+
+.post-excerpt {
+  color: #b0b3b8;
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  color: #8c9ea7;
+}
+
+/* Post Kartı */
+.card.post-card {
+  background-color: #0e1113;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+}
+
+.card.post-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background-color: #1e2124;
+}
+
+/* Başlık */
+.post-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Meta Bilgiler */
+.post-meta {
+  font-size: 0.9rem;
+  color: #5c6c74;
+  margin-bottom: 1em;
+}
+
+.post-meta .post-topic {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.post-meta .post-author a {
+  color: #0865c7;
+  text-decoration: none;
+}
+
+.post-meta .post-author a:hover {
+  text-decoration: underline;
+}
+
+.post-meta .post-time {
+  font-style: italic;
+  color: #848591;
+}
+
+/* Pin İkonu */
+.pin-icon {
+  color: #0865c7;
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+/* Post Gövde */
+.post-body {
+  color: #b0b3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* Attachments */
+.post-attachments ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-attachments li {
+  color: #5c6c74;
+  font-size: 0.9rem;
+}
+
+/* Beğeniler */
+.post-likes {
+  margin-top: 1em;
+  font-size: 1rem;
+  color: #b0b3b8;
+}
+
+/* Aksiyon Butonları */
+.post-actions .btn {
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.post-actions .btn:hover {
+  background-color: #00d8ff;
+  transform: scale(1.05);
+}
+
+.post-actions .btn:active {
+  background-color: #033bf4;
+  transform: scale(1);
+}
+
+/* Genel Buton Renkleri */
+.btn.btn-primary {
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-primary:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+}
+
+.btn.btn-warning {
+  background: linear-gradient(135deg, #f5a623, #f77d19);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-warning:hover {
+  background: linear-gradient(135deg, #f77d19, #f5a623);
+}
+
+/* Author kısmı */
+.author-name {
+  color: #0865c7; /* Yazı rengi */
+  text-decoration: none; /* Link altını kaldır */
+}
+
+/* Author kısmının üzerine gelindiğinde efekt */
+.author-name:hover {
+  color: #0865c7; /* Hover rengi */
+  text-decoration: underline; /* Alt çizgi */
+}
+
+/* Button group styling */
+.btn-group {
+  justify-content: center;
+}
+
+/* Button styling */
+.btn-sort {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+}
+
+/* Hover effect */
+.btn-sort:hover {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Active button state */
+.btn-sort.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Focus state for accessibility */
+.btn-sort:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Container for editing post */
+.edit-post-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+/* Title styling */
+.edit-post-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Form styling */
+form {
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input and textarea styling */
+input, textarea {
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button and links styling */
+.btn-link {
+  color: #007bff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+}
+
+/* Navigation links */
+.post-navigation {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.post-navigation a {
+  color: #007bff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-navigation a:hover {
+  color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-post-container {
+    padding: 20px;
+  }
+
+  .edit-post-title {
+    font-size: 2rem;
+  }
+
+  .post-navigation a {
+    font-size: 1rem;
+  }
+}
+
+/* Liste Elemanları */
+.uploaded-file-item {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Bağlantı Stili */
+.uploaded-file-link {
+  display: block; /* Bağlantıyı bloğun tamamına yay */
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  width: 100%; /* Blok genişliğini tam yap */
+  height: 100%; /* Blok yüksekliğini tam yap */
+}
+
+/* Hover Efektleri */
+.uploaded-file-item:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.uploaded-file-link:hover {
+  color: #00bfff;
+}
+
+/* Container */
+.uploaded-file-details-container {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.uploaded-file-details-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00bfff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* File Details */
+.uploaded-file-detail {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.uploaded-file-name {
+  color: #ccc;
+  font-weight: normal;
+}
+
+/* Link */
+.uploaded-file-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.uploaded-file-link:hover {
+  color: #00bfff;
+}
+
+/* Actions (Buttons) */
+.uploaded-file-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.uploaded-file-actions .btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.uploaded-file-actions .btn-secondary {
+  background-color: #444;
+  color: #fff;
+  border: none;
+}
+
+.uploaded-file-actions .btn-secondary:hover {
+  background-color: #555;
+}
+
+.uploaded-file-actions .btn-danger {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+}
+
+.uploaded-file-actions .btn-danger:hover {
+  background-color: #ff3333;
+  transform: scale(1.05);
+}
+
+/* Link için stil */
+.back-to-posts-link {
+  color: #ffffff; /* Beyaz yazı */
+  background: linear-gradient(135deg, #011e7e, #053bec);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-posts-link:hover {
+  background: linear-gradient(135deg, #053bec, #011e7e);
+}
+
+#post_topic_id {
+  margin-bottom: 10px;
+}
+
+/* Dropdown Container */
+.user-dropdown {
+  position: relative;
+}
+
+.user-dropdown-btn {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-dropdown-btn:hover {
+  background-color: #444;
+  transform: scale(1.02);
+}
+
+.user-dropdown-btn i {
+  margin-right: 5px;
+}
+
+/* Dropdown Menu */
+.user-dropdown-menu {
+  background-color: #222;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 8px;
+}
+
+.user-dropdown-menu .user-dropdown-item {
+  color: #ddd;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-dropdown-menu .user-dropdown-item:hover {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Role Specific Styling */
+.user-dropdown-btn.admin {
+  border: 2px solid yellow;
+}
+
+/* Sign-up actions için özel stil */
+.sign-up-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+/* Authentication Links Container */
+.auth-links-container {
+  margin: 20px auto;
+}
+
+/* Links Styling */
+.auth-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+/* Resend confirmation actions için özel stil */
+.resend-confirmation-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+.reset-password-actions {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+}
+
+.topics-container * {
+  box-sizing: border-box;
+}
+
+.actions.update-profile {
+  margin-top: 10px; /* Üstten boşluk ekleyin */
+}
+
+
+
+
+
+
+
+
