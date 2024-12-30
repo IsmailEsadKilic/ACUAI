@@ -1,34 +1,39 @@
 class Post < ApplicationRecord
-  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
-  validates :body, presence: true, length: { minimum: 5, maximum: 2000 }
-  has_rich_text :body
-  belongs_to :topic, optional: true
   belongs_to :user
+  belongs_to :topic, optional: true
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_by_users, through: :likes, source: :user
+  has_many :notifications, as: :notifiable, dependent: :destroy
+  has_rich_text :body
   has_many_attached :uploads
+
+  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
+  validates :body, presence: true
+  validate :body_length
   validate :correct_upload_mime_type
+
   scope :pinned, -> { where(pinned: true) }
   scope :announcement, -> { where(announcement: true) }
 
-  has_many :likes, dependent: :destroy
+  private
 
-  has_many :liked_by_users, through: :likes, source: :user
-
-  has_noticed_notifications model_name: 'Notification'
-
-  has_many :notifications, through: :user, dependent: :destroy
-
-  after_create_commit :notify_subscribers
-
-  def correct_upload_mime_type
-    if uploads.attached? && uploads.any? { |upload| !upload.content_type.in?(%w[image/png image/jpg image/jpeg application/pdf]) }
-      errors.add(:uploads, 'must be a PNG, JPG, JPEG, or PDF')
+  def body_length
+    return unless body.present?
+    text_length = body.to_plain_text.length
+    if text_length < 5
+      errors.add(:body, 'is too short (minimum is 5 characters)')
+    elsif text_length > 10000
+      errors.add(:body, 'is too long (maximum is 10000 characters)')
     end
   end
 
-  def notify_subscribers
-    self.user.users_that_subscribed.each do |user|
-      PostNotification.with(post: self).deliver_later(user)
+  def correct_upload_mime_type
+    uploads.each do |upload|
+      unless upload.content_type.in?(%w[image/png image/jpg image/jpeg application/pdf])
+        errors.add(:uploads, 'must be PNG, JPG, JPEG, or PDF files')
+        upload.purge
+      end
     end
   end
 end

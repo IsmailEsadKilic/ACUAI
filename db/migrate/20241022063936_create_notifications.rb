@@ -1,7 +1,8 @@
-class CreateNotifications < ActiveRecord::Migration[7.2]
+class CreateNotifications < ActiveRecord::Migration[7.1]
   def change
     create_table :notifications do |t|
       t.references :recipient, polymorphic: true, null: false
+      t.references :notifiable, polymorphic: true, null: false
       t.string :type, null: false
       t.json :params
       t.datetime :read_at
@@ -10,4 +11,4 @@ class CreateNotifications < ActiveRecord::Migration[7.2]
     end
     add_index :notifications, :read_at
   end
-end
+end 

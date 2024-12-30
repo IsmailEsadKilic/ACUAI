@@ -1,31 +1,22 @@
 <% if current_user %>
-  <li class="dropdown">
-    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="badge rounded-pill bg-danger">
-        <%= @unread.count >= 9 ? "9+" : @unread.count %>
-      <i class="bi bi-bell"></i>
-      </span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-      <% @unread.each do |notification| %>
-        <li class="dropdown-item">
-          <%= link_to notification.to_notification.message, notification.to_notification.url %>
-        </li>
+  <div class="dropdown">
+    <button class="btn btn-link" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fas fa-bell"></i>
+      <% if current_user.notifications.unread.any? %>
+        <span class="badge bg-danger"><%= current_user.notifications.unread.count %></span>
       <% end %>
-      <% if @read.count > 0 && @unread.count > 0 %>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
-      <% elsif @read.count + @unread.count == 0 %>
-        <li class="dropdown-item">
-          No notifications
-        </li>
+    </button>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+      <% if current_user.notifications.any? %>
+        <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
+          <div class="dropdown-item">
+            <%= notification.params&.dig('message') || 'New notification' %>
+            <small class="text-muted d-block"><%= time_ago_in_words(notification.created_at) %> ago</small>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="dropdown-item">No notifications</div>
       <% end %>
-      <% @read.each do |notification| %>
-        <li class="dropdown-item">
-          <%= link_to notification.to_notification.message, notification.to_notification.url %>
-        </li>
-      <% end %>
-    </ul>
-  </li>
+    </div>
+  </div>
 <% end %>

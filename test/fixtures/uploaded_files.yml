@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: test_image.jpg
 
 two:
-  name: MyString
+  name: test_document.pdf
