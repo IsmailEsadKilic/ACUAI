@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      sqlite3:
+        image: nouchka/sqlite3:latest
+
+    env:
+      RAILS_ENV: test
+      NODE_ENV: test
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.0'
+          bundler-cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+          yarn install
+
+      - name: Set up database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:schema:load
+
+      - name: Run tests
+        run: bundle exec rails test
+
+      - name: Run security checks
+        run: |
+          bundle exec bundle-audit check --update
+          bundle exec brakeman -q -w2
+
+      - name: Run linting
+        run: bundle exec rubocop 
