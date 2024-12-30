@@ -3,9 +3,10 @@
 one:
   post: one
   user: one
-  body: MyString
+  body: This is a great post.
 
 two:
   post: two
   user: two
-  body: MyString
+  body: Interesting discussion.
+

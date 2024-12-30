@@ -1,3 +1,15 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Topics</h5>
+  </div>
+  <div class="card-body">
+    <div class="list-group">
+      <%= link_to "All Posts", posts_path, class: "list-group-item list-group-item-action" %>
+      <%= link_to "Pinned Posts", pinned_posts_path, class: "list-group-item list-group-item-action" %>
+      <%= link_to "Announcements", announcements_posts_path, class: "list-group-item list-group-item-action" %>
+      <% Topic.all.each do |topic| %>
+        <%= link_to topic.name, topic_path(topic), class: "list-group-item list-group-item-action" %>
+      <% end %>
 <h1>Topics</h1>
 
 <% if current_user&.admin? %>
@@ -32,15 +44,5 @@
         </a>
       </div>
     </div>
-  <% else %>
-    <div class="btn-group topic">
-      <a href="<%= posts_path(topic_id: topic.id) %>" class="btn btn-sm btn-outline-light mt-2 dontbecomeinviswhenhovered">
-        <strong>
-          <%= topic.name %>
-        </strong> <br>
-        <%= topic.description %>
-      </a>
-    </div>
-  <% end %>
-<% end %>
+  </div>
 </div>
