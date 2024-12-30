@@ -58,4 +58,4 @@ end
 gem "devise"
 
 # noticed 1.6.3
-gem 'noticed', '~> 1.6.3'
+gem 'noticed', '~> 2.5.0'
